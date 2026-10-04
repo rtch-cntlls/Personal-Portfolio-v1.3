@@ -1,0 +1,87 @@
+p{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo{
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: 1.2rem;
+}
+.navbar-toggler-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.tagline {
+  font-family: 'Anton', 'Impact', sans-serif;
+  letter-spacing: 1.2px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.subhead{
+    font-size: clamp(0.95rem, 1vw, 1.4rem);
+}
+
+.hero-corner-border {
+  width: 10px;
+  height: 10px;
+}
+
+.hero-social-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.hero-get-in-touch-title {
+  font-size: 0.95rem;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  height: 500px;
+  max-width: 400px;
+  margin: 10px auto;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 10;
+  border-radius: 3px;
+}
+
+.handle-tl { top: -5px; left: -5px; }
+.handle-tc { top: -5px; left: 50%; transform: translateX(-50%); }
+.handle-tr { top: -5px; right: -5px; }
+.handle-rc { top: 50%; right: -5px; transform: translateY(-50%); }
+.handle-br { bottom: -5px; right: -5px; }
+.handle-bc { bottom: -5px; left: 50%; transform: translateX(-50%); }
+.handle-bl { bottom: -5px; left: -5px; }
+.handle-lc { top: 50%; left: -5px; transform: translateY(-50%); }
+
+.availability-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -25px;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: floatBadge 3s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (max-width: 991.98px) {
+  .hero-image-wrapper {
+    height: 380px;
+    max-width: 320px;
+  }
+
+  .availability-badge {
+    bottom: 15px;
+    right: 0px;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem !important;
+  }
+}
