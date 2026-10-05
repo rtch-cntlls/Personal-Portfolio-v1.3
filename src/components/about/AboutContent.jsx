@@ -4,15 +4,13 @@ function AboutContent({ isBlack }) {
     return (
         <div className="col-lg-7 position-relative">
             <h2 className={`my-3 fs-3 d-lg-none ${isBlack ? 'text-light' : 'text-dark'}`}>
-                Who I Am
+                Who <span className="h2-span">I Am</span>
             </h2>
 
             <p className={`about-subhead mb-4 position-relative ${isBlack ? 'text-light opacity-75' : 'text-dark'}`} style={{ zIndex: 1 }}>
-                <span className="fw-bold">Bachelor of Science in Information Technology </span> 
-                graduate specializing in full-stack developer with a strong focus on frontend design. 
-                Experienced in building fast, responsive websites, and connecting them to reliable backend systems. 
-                Skilled at turning designs into clean, accessible code that works seamlessly for users. 
-                A dedicated developer who bridges the gap between beautiful visual design and solid technical performance to build great web applications.
+               <span className="fw-medium">Bachelor of Science in Information Technology</span> graduate from the Philippines and a full-stack developer with a strong focus on frontend design. 
+               I build fast, responsive websites and connect them to reliable backend systems, turning designs into clean, accessible code. 
+               My goal is to bridge the gap between beautiful visual design and solid technical performance to create great web applications.
             </p>
 
             <div className={`card border-0 shadow-sm position-relative ${isBlack ? 'bg-dark text-light' : 'bg-transparent text-dark'}`} style={{ zIndex: 1 }}>
@@ -20,10 +18,10 @@ function AboutContent({ isBlack }) {
                     
                     <div className="col-6">
                         <div className="p-2 py-4">
-                            <p className={`fw-bold mb-1 ${isBlack ? 'text-white' : 'text-dark'}`}>
+                            <p className={`fw-bold mb-1 count ${isBlack ? 'text-white' : 'text-dark'}`}>
                                 10+
                             </p>
-                            <p className="mb-0 text-muted small text-uppercase tracking-wider fw-semibold">
+                            <p className="mb-0 text-muted tech text-uppercase tracking-wider fw-semibold">
                                 Total Projects
                             </p>
                         </div>
@@ -31,10 +29,10 @@ function AboutContent({ isBlack }) {
 
                     <div className="col-6">
                         <div className="p-2 py-4">
-                            <p className={`fw-bold mb-1 ${isBlack ? 'text-white' : 'text-dark'}`}>
-                                10+
+                            <p className={`fw-bold mb-1 count ${isBlack ? 'text-white' : 'text-dark'}`}>
+                                15+
                             </p>
-                            <p className="mb-0 text-muted small text-uppercase tracking-wider fw-semibold">
+                            <p className="mb-0 text-muted tech text-uppercase tracking-wider fw-semibold">
                                 Technologies
                             </p>
                         </div>
@@ -44,7 +42,7 @@ function AboutContent({ isBlack }) {
             </div>
 
             <blockquote className={`blockquote my-4 ps-3 border-start border-4 position-relative ${isBlack ? 'border-info text-light' : 'border-dark text-dark'}`} style={{ zIndex: 1 }}>
-                <p className="fs-5 fst-italic mb-0">
+                <p className="fst-italic mb-0 quote">
                     &ldquo;Designing systems. Developing experiences&rdquo;
                 </p>
             </blockquote>

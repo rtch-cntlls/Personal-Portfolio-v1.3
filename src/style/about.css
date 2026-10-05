@@ -2,8 +2,17 @@ h2{
     font-family: 'Anton', 'Impact', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
+.h2-span{
+    color: #7ebeff;
+}
 .about-subhead {
     font-size: clamp(0.95rem, 1vw, 1.4rem);
     text-align: justify;
     text-justify: inter-word;
+}
+.quote{
+    font-size: clamp(1rem, 3vw, 1.4rem);
+}
+.count, .tech{
+    font-size: clamp(0.8rem, 3vw, 1rem);
 }

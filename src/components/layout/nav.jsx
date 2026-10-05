@@ -4,9 +4,9 @@ function Nav({ theme, toggleTheme }) {
   const isBlack = theme === 'black';
 
   const navLinks = [
-    { name: 'Portfolio', href: '#', active: true },
-    { name: 'Skills', href: '#', active: true },
     { name: 'About', href: '#about', active: false },
+    { name: 'Portfolio', href: '#', active: true },
+    { name: 'Stack', href: '#', active: true },
     { name: 'Services', href: '#services', active: false },
   ];
 
@@ -35,7 +35,7 @@ function Nav({ theme, toggleTheme }) {
   );
 
   const BrandLogo = ({ width = 32}) => (
-    <a className="navbar-brand d-flex align-items-center text-decoration-none py-0" href="#">
+    <a className="navbar-brand d-flex align-items-center text-decoration-none py-0" href="#hero">
       <img 
         src={Logo} 
         alt="Logo" 

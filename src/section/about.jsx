@@ -5,9 +5,9 @@ function About({ theme }) {
     const isBlack = theme === 'black';
 
     return (
-        <section id="about" className={`py-5 overflow-hidden ${isBlack ? 'bg-black text-light' : 'bg-light text-dark'}`}>
-            <div className="container px-md-5 p-0">
-                <div className="row align-items-center g-4 g-lg-5 px-2 px-md-4">                
+        <section id="about" className={`py-md-5 overflow-hidden ${isBlack ? 'bg-black text-light' : 'bg-light text-dark'}`}>
+            <div className="container px-md-5 p-3">
+                <div className="row align-items-center g-4">                
                     <AboutIllustration isBlack={isBlack} />
                     <AboutContent isBlack={isBlack} />
                 </div>

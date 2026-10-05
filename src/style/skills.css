@@ -1,0 +1,24 @@
+ h4{
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    letter-spacing: 1px;
+ }
+ @keyframes scrollLeft {
+     0% {
+         transform: translateX(0);
+     }
+
+     100% {
+         transform: translateX(-33.333%);
+     }
+ }
+
+ @keyframes scrollRight {
+     0% {
+         transform: translateX(-33.333%);
+     }
+
+     100% {
+         transform: translateX(0);
+     }
+ }

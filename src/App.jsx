@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/layout/nav';
 import Hero from './section/hero';
 import About from './section/about';
+import Skills from './section/skills';
 import GridBackground from '../src/components/GridBackground';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   return (
     <div 
       data-bs-theme={isBlack ? 'dark' : 'light'} 
-      className={`min-vh-100 position-relative ${isBlack ? 'text-light' : 'text-dark'}`}
+      className={`position-relative ${isBlack ? 'text-light' : 'text-dark'}`}
       style={{ backgroundColor: isBlack ? '#000000' : '#ffffff' }} >
       <GridBackground theme={theme} />
 
@@ -31,6 +32,7 @@ function App() {
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         <Hero theme={theme} />
         <About theme={theme} />
+        <Skills theme={theme} />
       </div>
     </div>
   );

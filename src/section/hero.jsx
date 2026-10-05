@@ -3,7 +3,7 @@ import HeroImage from '../components/hero/HeroImage';
 
 function Hero({ theme }) {
   return (
-    <section className="py-5">
+    <section id="hero" className="py-5">
       <div className="container pt-5 px-md-5 mt-5">
         <div className="row align-items-center justify-content-evenly">
           <HeroContent theme={theme} />
