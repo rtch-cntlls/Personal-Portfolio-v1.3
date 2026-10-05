@@ -1,0 +1,9 @@
+h2{
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+.about-subhead {
+    font-size: clamp(0.95rem, 1vw, 1.4rem);
+    text-align: justify;
+    text-justify: inter-word;
+}
