@@ -86,4 +86,8 @@ p {
     font-size: 0.75rem;
     padding: 0.4rem 0.75rem !important;
   }
+
+  .project-img{
+     height: 100px !important;
+  }
 }

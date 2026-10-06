@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/layout/nav';
 import Hero from './section/hero';
 import About from './section/about';
+import Project from './section/project';
 import Skills from './section/skills';
 import GridBackground from '../src/components/GridBackground';
 
@@ -32,6 +33,7 @@ function App() {
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         <Hero theme={theme} />
         <About theme={theme} />
+        <Project theme={theme} />
         <Skills theme={theme} />
       </div>
     </div>
