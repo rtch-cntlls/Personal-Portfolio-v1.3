@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/nav';
 import Hero from './section/hero';
 import About from './section/about';
 import Project from './section/project';
 import Skills from './section/skills';
+import ProjectDetails from './pages/project-details';
 import GridBackground from '../src/components/GridBackground';
 
 function App() {
@@ -23,20 +25,38 @@ function App() {
   const isBlack = theme === 'black';
 
   return (
-    <div 
-      data-bs-theme={isBlack ? 'dark' : 'light'} 
-      className={`position-relative ${isBlack ? 'text-light' : 'text-dark'}`}
-      style={{ backgroundColor: isBlack ? '#000000' : '#ffffff' }} >
-      <GridBackground theme={theme} />
+    <BrowserRouter>
+      <div 
+        data-bs-theme={isBlack ? 'dark' : 'light'} 
+        className={`position-relative ${isBlack ? 'text-light' : 'text-dark'}`}
+        style={{ backgroundColor: isBlack ? '#000000' : '#ffffff', minHeight: '100vh' }}
+      >
+        <GridBackground theme={theme} />
 
-      <div className="position-relative" style={{ zIndex: 1 }}>
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
-        <Hero theme={theme} />
-        <About theme={theme} />
-        <Project theme={theme} />
-        <Skills theme={theme} />
+        <div className="position-relative" style={{ zIndex: 1 }}>
+          <Navbar theme={theme} toggleTheme={toggleTheme} />
+          
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <>
+                  <Hero theme={theme} />
+                  <About theme={theme} />
+                  <Project theme={theme} />
+                  <Skills theme={theme} />
+                </>
+              } 
+            />
+
+            <Route 
+              path="/project-details/:title" 
+              element={<ProjectDetails theme={theme} />} 
+            />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

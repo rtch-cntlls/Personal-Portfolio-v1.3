@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { getProjects } from '../data/projectsData';
 import { FaGithub } from 'react-icons/fa';
-import { FiExternalLink, FiLock } from 'react-icons/fi';
+import { FiExternalLink, FiLock, FiInfo } from 'react-icons/fi';
 
 function Project({ theme }) {
     const isBlack = theme === 'black';
@@ -36,7 +37,6 @@ function Project({ theme }) {
 
                         return (
                             <div key={year} className="timeline-group">
-                                
                                 <div className="d-flex align-items-center mb-2">
                                     {isEven ? (
                                         <>
@@ -74,6 +74,7 @@ function Project({ theme }) {
                                         const hasValidLink = project.link && project.link !== '#' && project.link.trim() !== '';
                                         const hasValidGithub = project.github && project.github !== '#' && project.github.trim() !== '';
                                         const hasAnyLink = hasValidLink || hasValidGithub;
+                                        const primaryImage = project.images && project.images.length > 0 ? project.images[0] : null;
 
                                         return (
                                             <div key={`proj-${year}-${idx}`} className="col-6 col-md-4">
@@ -83,10 +84,10 @@ function Project({ theme }) {
                                                     }`}
                                                 >
                                                     <div>
-                                                        {project.thumbnail && (
+                                                        {primaryImage && (
                                                             <div className="position-relative overflow-hidden border-bottom project-img">
                                                                 <img 
-                                                                    src={project.thumbnail} 
+                                                                    src={primaryImage.img} 
                                                                     alt={project.title} 
                                                                     className="w-100 h-100 object-fit-fill" 
                                                                     style={{ 
@@ -113,40 +114,51 @@ function Project({ theme }) {
                                                                 </p>
                                                             )}
                                                             
-                                                            <div className="d-flex align-items-center gap-3 mt-2">
-                                                                {hasAnyLink ? (
-                                                                    <>
-                                                                        {hasValidLink && (
-                                                                            <a 
-                                                                                href={project.link} 
-                                                                                target="_blank" 
-                                                                                rel="noopener noreferrer" 
-                                                                                className={`text-decoration-none d-flex align-items-center gap-1 small ${isBlack ? 'text-light' : 'text-dark'}`}
-                                                                                title={project.linkType === 'live' ? 'View Live Site' : 'View Demo'}
-                                                                            >
-                                                                                <FiExternalLink size={15} /> 
-                                                                                <span>{project.linkType === 'live' ? 'Live' : 'Demo'}</span>
-                                                                            </a>
-                                                                        )}
-                                                                        {hasValidGithub && (
-                                                                            <a 
-                                                                                href={project.github} 
-                                                                                target="_blank" 
-                                                                                rel="noopener noreferrer" 
-                                                                                className={`text-decoration-none d-flex align-items-center gap-1 small ${isBlack ? 'text-light' : 'text-dark'}`}
-                                                                                title="View Source Code"
-                                                                            >
-                                                                                <FaGithub size={15} /> 
-                                                                                <span>Code</span>
-                                                                            </a>
-                                                                        )}
-                                                                    </>
-                                                                ) : (
-                                                                    <span className="text-muted d-flex align-items-center gap-1 small opacity-75">
-                                                                        <FiLock size={13} />
-                                                                        <span>Private</span>
-                                                                    </span>
-                                                                )}
+                                                            <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3">
+                                                                <div className="d-flex align-items-center gap-3">
+                                                                    {hasAnyLink ? (
+                                                                        <>
+                                                                            {hasValidLink && (
+                                                                                <a 
+                                                                                    href={project.link} 
+                                                                                    target="_blank" 
+                                                                                    rel="noopener noreferrer" 
+                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                                                    title={project.linkType === 'live' ? 'View Live Site' : 'View Demo'}
+                                                                                >
+                                                                                    <FiExternalLink size={15} /> 
+                                                                                    <span>{project.linkType === 'live' ? 'Live' : 'Demo'}</span>
+                                                                                </a>
+                                                                            )}
+                                                                            {hasValidGithub && (
+                                                                                <a 
+                                                                                    href={project.github} 
+                                                                                    target="_blank" 
+                                                                                    rel="noopener noreferrer" 
+                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                                                    title="View Source Code"
+                                                                                >
+                                                                                    <FaGithub size={15} /> 
+                                                                                    <span>Code</span>
+                                                                                </a>
+                                                                            )}
+                                                                        </>
+                                                                    ) : (
+                                                                        <span className="text-muted d-flex align-items-center gap-1 small opacity-75">
+                                                                            <FiLock size={13} />
+                                                                            <span>Private</span>
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+
+                                                                <Link 
+                                                                    to={`/project-details/${encodeURIComponent(project.title.toLowerCase())}`} 
+                                                                    className={`btn btn-sm ${isBlack ? 'btn-outline-light' : 'btn-outline-dark'} d-flex align-items-center gap-1`}
+                                                                    title="View Full Details"
+                                                                >
+                                                                    <FiInfo size={14} />
+                                                                    <span>Details</span>
+                                                                </Link>
                                                             </div>
 
                                                         </div>
