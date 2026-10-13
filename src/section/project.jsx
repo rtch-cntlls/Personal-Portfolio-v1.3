@@ -90,7 +90,18 @@ function Project({ theme }) {
                                                                     src={primaryImage.img} 
                                                                     alt={project.title} 
                                                                     className="w-100 h-100 object-fit-fill" 
-                                                              
+                                                                    style={{ 
+                                                                        filter: 'grayscale(100%)', 
+                                                                        transition: 'filter 0.3s ease, transform 0.3s ease' 
+                                                                    }}
+                                                                    onMouseEnter={(e) => {
+                                                                        e.currentTarget.style.filter = 'grayscale(0%)';
+                                                                        e.currentTarget.style.transform = 'scale(1.05)';
+                                                                    }}
+                                                                    onMouseLeave={(e) => {
+                                                                        e.currentTarget.style.filter = 'grayscale(100%)';
+                                                                        e.currentTarget.style.transform = 'scale(1)';
+                                                                    }}
                                                                 />
                                                             </div>
                                                         )}
@@ -103,7 +114,7 @@ function Project({ theme }) {
                                                                 </p>
                                                             )}
                                                             
-                                                            <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 mt-3">
+                                                            <div className="d-flex flex-wrap align-items-center justify-content-between gap-2">
                                                                 <div className="d-flex align-items-center gap-3">
                                                                     {hasAnyLink ? (
                                                                         <>
@@ -112,10 +123,13 @@ function Project({ theme }) {
                                                                                     href={project.link} 
                                                                                     target="_blank" 
                                                                                     rel="noopener noreferrer" 
-                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small link ${isBlack ? 'text-light' : 'text-dark'}`}
                                                                                     title={project.linkType === 'live' ? 'View Live Site' : 'View Demo'}
                                                                                 >
-                                                                                    <FiExternalLink size={15} /> 
+                                                                                     <span className="icon d-flex align-items-center">
+                                                                                        <FiExternalLink size={14} /> 
+                                                                                    </span>
+                                                                                    
                                                                                     <span>{project.linkType === 'live' ? 'Live' : 'Demo'}</span>
                                                                                 </a>
                                                                             )}
@@ -124,17 +138,21 @@ function Project({ theme }) {
                                                                                     href={project.github} 
                                                                                     target="_blank" 
                                                                                     rel="noopener noreferrer" 
-                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small link ${isBlack ? 'text-light' : 'text-dark'}`}
                                                                                     title="View Source Code"
                                                                                 >
-                                                                                    <FaGithub size={15} /> 
+                                                                                    <span className="icon d-flex align-items-center">
+                                                                                        <FaGithub size={14} /> 
+                                                                                    </span>
                                                                                     <span>Code</span>
                                                                                 </a>
                                                                             )}
                                                                         </>
                                                                     ) : (
-                                                                        <span className="text-muted d-flex align-items-center gap-1 small opacity-75 private">
-                                                                            <FiLock size={13} />
+                                                                        <span className="text-muted d-flex align-items-center gap-1 small opacity-75 link">
+                                                                            <span className="icon d-flex align-items-center">
+                                                                               <FiLock size={14} />
+                                                                            </span>
                                                                             <span>Private</span>
                                                                         </span>
                                                                     )}
@@ -143,9 +161,10 @@ function Project({ theme }) {
                                                                 <Link 
                                                                     to={`/project-details/${encodeURIComponent(project.title.toLowerCase())}`} 
                                                                     className={`btn btn-sm ${isBlack ? 'btn-outline-light' : 'btn-outline-dark'} d-flex align-items-center gap-1`}
-                                                                    title="View Full Details"
-                                                                >
-                                                                    <FiInfo size={14} />
+                                                                    title="View Full Details" >
+                                                                    <span className="icon d-flex align-items-center">
+                                                                        <FiInfo size={14} />
+                                                                    </span>
                                                                     <span>Details</span>
                                                                 </Link>
                                                             </div>

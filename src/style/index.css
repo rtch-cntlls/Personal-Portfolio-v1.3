@@ -98,11 +98,14 @@ p {
      height: 100px !important;
   }
 
-  .private{
-    font-size: 11px;
+  .link{
+    font-size: 10px;
   }
   .btn-sm{
-    font-size: 11px;
-    
+    font-size: 9px;
+  }
+  .icon svg {
+    width: 10px;
+    height: 10px;
   }
 }
