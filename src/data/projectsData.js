@@ -21,7 +21,7 @@ import motolinksettings from '../assets/projects/motolink/settings.PNG';
 
 import activehubImg from '../assets/projects/gym/1.png';
 import assetflowImg from '../assets/projects/inv/1.PNG';
-import propertyImg from '../assets/projects/erent/1.png';
+import propertyImg from '../assets/projects/erent/1.PNG';
 import portfolio1 from '../assets/projects/portfolio/1.png';
 import portfolio2 from '../assets/projects/portfolio/2.PNG';
 import nces from '../assets/projects/nces/1.PNG';
