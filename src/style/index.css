@@ -2,7 +2,7 @@ p {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .logo {
-    font-family: 'Anton', 'Impact', sans-serif;
+    font-family: 'Anton', 'Impact', sans-serif !important;
     font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 .navbar-toggler-icon {
@@ -10,7 +10,7 @@ p {
     height: 1.5rem;
 }
 .tagline {
-  font-family: 'Anton', 'Impact', sans-serif;
+  font-family: 'Anton', 'Impact', sans-serif !important;
   letter-spacing: 1.2px;
   font-size: clamp(2rem, 5vw, 3.5rem);
 }

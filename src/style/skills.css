@@ -1,14 +1,14 @@
  h4{
-    font-family: 'Anton', 'Impact', sans-serif;
+    font-family: 'Anton', 'Impact', sans-serif !important;
     font-size: clamp(1.2rem, 3vw, 1.7rem);
  }
  .fs-4{
-    font-family: 'Anton', 'Impact', sans-serif;
+    font-family: 'Anton', 'Impact', sans-serif !important;
     font-size: clamp(2rem, 5vw, 1rem) !important;
     color: #0366c9;
  }
  h5{
-    font-family: 'Anton', 'Impact', sans-serif;
+    font-family: 'Anton', 'Impact', sans-serif !important;
     font-size: clamp(1.2rem, 3vw, 1.6rem);
  }
 
