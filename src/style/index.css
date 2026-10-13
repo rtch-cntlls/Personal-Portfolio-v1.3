@@ -90,4 +90,12 @@ p {
   .project-img{
      height: 100px !important;
   }
+
+  .private{
+    font-size: 11px;
+  }
+  .btn-sm{
+    font-size: 11px;
+    
+  }
 }

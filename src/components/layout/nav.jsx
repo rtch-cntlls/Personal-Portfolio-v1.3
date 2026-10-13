@@ -5,8 +5,8 @@ function Nav({ theme, toggleTheme }) {
 
   const navLinks = [
     { name: 'About', href: '#about', active: false },
-    { name: 'Portfolio', href: '#', active: true },
-    { name: 'Stack', href: '#', active: true },
+    { name: 'Projects', href: '#projects', active: true },
+    { name: 'Stack & Skills', href: '#skills', active: true },
     { name: 'Services', href: '#services', active: false },
   ];
 

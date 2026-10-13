@@ -24,8 +24,6 @@ import assetflowImg from '../assets/projects/inv/1.PNG';
 import propertyImg from '../assets/projects/erent/1.png';
 import portfolio1 from '../assets/projects/portfolio/1.png';
 import portfolio2 from '../assets/projects/portfolio/2.PNG';
-import portfolio3 from '../assets/projects/portfolio/3.PNG';
-import portfolio4 from '../assets/projects/portfolio/4.PNG';
 import nces from '../assets/projects/nces/1.PNG';
 import care from '../assets/projects/care/1.png';
 import pos from '../assets/projects/pos/1.png';
@@ -35,7 +33,7 @@ export const getProjects = () => [
     {
         title: "ActiveHub",
         subtitle: "Gym & Membership Management System",
-        description: "A fitness and lifestyle management web app built with Python Flask, MySQL, and Bootstrap 5.",
+        description: "A full-stack gym management web application featuring a public website and an admin portal. It streamlines member check-ins, subscription tracking, sales merchandise inventory with a built-in Point of Sale (POS), and revenue analytics.",
         tech: ["Python Flask", "MySQL", "Bootstrap5", "CSS3", "JavaScript"],
         images: [
             { img: activehubImg, type: "public", caption: "Dashboard Landing" }
@@ -46,38 +44,25 @@ export const getProjects = () => [
         year: 2026
     },
     {
-        title: "My Portfolio v3",
-        subtitle: "Developer Portfolio",
-        description: "My Personal portfolio showcasing client and personal project, skills, and services.",
-        tech: ["React", "Bootstrap", "Vite", "CSS3"],
-        images: [
-            { img: portfolio3, type: "public", caption: "Home View" }
-        ],
-        link: "#",
-        linkType: "live",
-        github: "#",
-        year: 2026
-    },
-    {
-        title: "SHS Portfolio",
+        title: "Webflow",
         subtitle: "SHS Personal Portfolio (2)",
-        description: "A responsive personal portfolio and overview highlighting professional background, career objectives, creative hobbies, and personal milestones.",
+        description: "A simple personal portfolio website created in Webflow to showcase background, interests, core skills, and career goals.",
         tech: ["WebFlow"],
         images: [
-            { img: portfolio1, type: "public", caption: "Portfolio Hero" }
+            { img: portfolio1, caption: "Website Portfolio" }
         ],
         link: "#",
-        linkType: "live",
+        linkType: "demo",
         github: "#",
         year: 2026
     },
     {
-        title: "GHL Portfolio",
+        title: "GHL",
         subtitle: "GoHighLevel Specialist Portfolio",
-        description: "A specialized portfolio showcasing client project automations, custom funnels, and responsive landing sites.",
+       description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
         tech: ["React", "Bootstrap", "Vite", "CSS3"],
         images: [
-            { img: portfolio2, type: "public", caption: "Landing Page" }
+            { img: portfolio2, caption: "Website Portfolio" }
         ],
         link: "https://hanneygraceleominares-ghl-portfolio.vercel.app/",
         linkType: "live",
@@ -85,22 +70,9 @@ export const getProjects = () => [
         year: 2026
     },
     {
-        title: "My Portfolio v2",
-        subtitle: "My Personal Portfolio",
-        description: "My Personal portfolio showcasing client and personal project, skills, and services.",
-        tech: ["React", "Bootstrap", "Vite", "CSS3"],
-        images: [
-            { img: portfolio4, type: "public", caption: "Main Preview" }
-        ],
-        link: "https://rtchcntlls.pages.dev/",
-        linkType: "live",
-        github: "#",
-        year: 2026
-    },
-    {
         title: "AssetFlow",
         subtitle: "School Asset & Inventory Management",
-        description: "School asset and inventory management web application built with Next.js and Supabase.",
+        description: "A web application for tracking school equipment, managing borrower records, and monitoring asset status, including items under maintenance or scheduled for write-off.",
         tech: ["Next.js", "Supabase", "Bootstrap5", "CSS3"],
         images: [
             { img: assetflowImg, type: "admin", caption: "Inventory Dashboard" }
@@ -111,10 +83,10 @@ export const getProjects = () => [
         year: 2026
     },
     {
-        title: "NCES",
+        title: "StudentArchive",
         subtitle: "Student Permanent Record Digitalization System",
-        description: "A digital archive and management system designed to digitize and streamline student Form 137 records, academic histories, and transcript tracking.",
-        tech: ["Next.js", "Supabase", "Bootstrap5", "CSS3"],
+        description: "A web application for digitizing, backing up, and managing student Form 137 permanent records online. It allows school staff to safely archive files and quickly search or retrieve records.",
+        tech: ["Next.js", "Supabase", "Bootstrap5", "CSS3", "hCaptcha"],
         images: [
             { img: nces, type: "admin", caption: "Records Archive Dashboard" }
         ],
@@ -157,9 +129,9 @@ export const getProjects = () => [
     },
     {
         title: "E-Rent",
-        subtitle: "Property Rental Marketplace Platform",
-        description: "Property rental search filter components and editorial hosting landing pages using Laravel.",
-        tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript"],
+        subtitle: "Property Rental Platform",
+      description: "A web platform for finding and listing rental properties. Users can search for rental spaces, book places to stay, and upgrade their accounts to become hosts so they can list and manage their own properties.",
+        tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "OAuth 2.0"],
         images: [
             { img: propertyImg, type: "public", caption: "Rental Search Feed" }
         ],
@@ -171,8 +143,8 @@ export const getProjects = () => [
     {
         title: "CarePoint",
         subtitle: "Patient Care, Medical Records & Booking Management System",
-        description: "A secure healthcare platform designed to streamline patient appointments, electronic medical records (EMR), doctor schedules, prescription tracking, and hospital billing operations.",
-        tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript"],
+        description: "A full-stack healthcare management web application for hospitals. It includes patients booking consultation along with dedicated dashboards for doctors, receptionists, billing staff, pharmacists, and admins to manage all operations.",
+        tech: ["Laravel 12", "MySQL", "Bootstrap 5", "CSS3", "JavaScript", "OAuth 2.0"],
         images: [
             { img: care, type: "public", caption: "Patient Portal" }
         ],
@@ -182,29 +154,29 @@ export const getProjects = () => [
         year: 2025
     },
     {
-        title: "Snack Stream",
+        title: "SnackStream",
         subtitle: "Filipino Snacks & Beverages Point of Sale",
-        description: "A secure healthcare platform designed to streamline patient appointments, electronic medical records (EMR), doctor schedules, prescription tracking, and hospital billing operations.",
-        tech: ["Visual Basic", "MySQL", "Window Form"],
+        description: "A desktop Point of Sale (POS) application for local snack and beverage shops. It helps process customer transactions, manage inventory, and calculate daily sales quickly on a single system.",
+        tech: ["Visual Basic", "MySQL", "Windows Forms"],
         images: [
-            { img: pos, type: "admin", caption: "POS Terminal Screen" }
+            { img: pos, caption: "POS Terminal Screen" }
         ],
         link: "#",
         linkType: "demo",
-        github: "#",
-        year: 2024
-    },
-    {
-        title: "Loan Calculator",
-        subtitle: "Simple Motorcycle Loan Calculator",
-        description: "A secure healthcare platform designed to streamline patient appointments, electronic medical records (EMR), doctor schedules, prescription tracking, and hospital billing operations.",
-        tech: ["C#", "ASP.NET", "Bootstrap", "CSS3"],
-        images: [
-            { img: mvc, type: "public", caption: "Calculator Tool View" }
-        ],
-        link: "#",
-        linkType: "demo",
-        github: "#",
+        github: "https://github.com/rtch-cntlls/POS-System-VB.NET-WinForms.git",
         year: 2023
     },
+    {
+        title: "LoanCalculator",
+        subtitle: "Simple Motorcycle Loan Calculator",
+        description: "A simple web application built with ASP.NET MVC for computing motorcycle loans. It easily calculates unit prices, monthly amortizations, and total loanable amounts all on a single page.",
+        tech: ["C#", "ASP.NET MVC", "Bootstrap", "CSS3"],
+        images: [
+            { img: mvc, caption: "Calculator Tool View" }
+        ],
+        link: "#",
+        linkType: "demo",
+        github: "https://github.com/rtch-cntlls/Motorcycle-Loan-Calculator.git",
+        year: 2023
+    }
 ];

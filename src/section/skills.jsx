@@ -1,13 +1,21 @@
-import { getPreferredSkills, getLearningSkills } from '../data/skillsData';
+import React, { useState } from 'react';
+import { getPreferredSkills, getNetworkingSkills, getLearningSkills } from '../data/skillsData';
 
 function Skills({ theme }) {
     const isBlack = theme === 'black';
+    const [activeTab, setActiveTab] = useState('all');
+
     const preferredSkills = getPreferredSkills(isBlack);
+    const networkingSkills = getNetworkingSkills(isBlack);
     const learningSkills = getLearningSkills(isBlack);
 
-    const midpoint = Math.ceil(preferredSkills.length / 2);
-    const row1Skills = preferredSkills.slice(0, midpoint);
-    const row2Skills = preferredSkills.slice(midpoint);
+    const filteredTechSkills = activeTab === 'all' 
+        ? preferredSkills 
+        : preferredSkills.filter(skill => skill.category === activeTab);
+
+    const midpoint = Math.ceil(filteredTechSkills.length / 2);
+    const row1Skills = filteredTechSkills.slice(0, midpoint);
+    const row2Skills = filteredTechSkills.slice(midpoint);
 
     return (
         <section id="skills" className={`py-5 ${isBlack ? 'bg-black text-light' : 'bg-transparent text-dark'}`}>
@@ -20,8 +28,24 @@ function Skills({ theme }) {
                     </p>
                 </div>
 
+                <div className="d-flex flex-wrap gap-2 mb-4">
+                    {['all', 'frontend', 'backend', 'database', 'tools'].map((cat) => (
+                        <button
+                            key={cat}
+                            onClick={() => setActiveTab(cat)}
+                            className={`btn btn-sm text-capitalize px-3 py-1 rounded-pill ${
+                                activeTab === cat 
+                                    ? 'btn-primary fw-semibold' 
+                                    : isBlack ? 'btn-outline-secondary text-light' : 'btn-outline-dark'
+                            }`}
+                        >
+                            {cat}
+                        </button>
+                    ))}
+                </div>
+
                 <div className="row g-2 d-flex d-md-none py-3 justify-content-center">
-                    {preferredSkills.map((skill, idx) => {
+                    {filteredTechSkills.map((skill, idx) => {
                         const IconComponent = skill.icon;
                         return (
                             <div
@@ -53,87 +77,122 @@ function Skills({ theme }) {
                     })}
                 </div>
 
-                <div className="d-none d-md-flex flex-column gap-1 w-100 py-4">
+                {activeTab === 'all' ? (
 
-                    <div className="position-relative overflow-hidden w-100 py-2">
-                        <div
-                            className="d-flex flex-nowrap mb-4"
-                            style={{
-                                width: 'max-content',
-                                animation: 'scrollLeft 25s linear infinite'
-                            }}
-                        >
-                            {[...row1Skills, ...row1Skills, ...row1Skills].map((skill, sIdx) => {
-                                const IconComponent = skill.icon;
-                                return (
-                                    <div
-                                        key={`r1-${sIdx}`}
-                                        className="d-flex flex-column align-items-center justify-content-center px-4"
-                                        style={{ minWidth: '120px' }}
-                                    >
-                                        <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
-                                            {skill.isImage ? (
-                                                <img 
-                                                    src={IconComponent} 
-                                                    alt={skill.name} 
-                                                    style={{ 
-                                                        width: '38px', 
-                                                        height: '38px', 
-                                                        objectFit: 'contain',
-                                                        filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
-                                                    }} 
-                                                />
-                                            ) : (
-                                                <IconComponent />
-                                            )}
+                    <div className="d-none d-md-flex flex-column gap-1 w-100 py-4">
+
+                        <div className="position-relative overflow-hidden w-100 py-2">
+                            <div
+                                className="d-flex flex-nowrap mb-4"
+                                style={{
+                                    width: 'max-content',
+                                    animation: 'scrollLeft 25s linear infinite'
+                                }}
+                            >
+                                {[...row1Skills, ...row1Skills, ...row1Skills].map((skill, sIdx) => {
+                                    const IconComponent = skill.icon;
+                                    return (
+                                        <div
+                                            key={`r1-${sIdx}`}
+                                            className="d-flex flex-column align-items-center justify-content-center px-4"
+                                            style={{ minWidth: '120px' }}
+                                        >
+                                            <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
+                                                {skill.isImage ? (
+                                                    <img 
+                                                        src={IconComponent} 
+                                                        alt={skill.name} 
+                                                        style={{ 
+                                                            width: '38px', 
+                                                            height: '38px', 
+                                                            objectFit: 'contain',
+                                                            filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
+                                                        }} 
+                                                    />
+                                                ) : (
+                                                    <IconComponent />
+                                                )}
+                                            </div>
+                                            <span>{skill.name}</span>
                                         </div>
-                                        <span className="fw-medium text-nowrap fs-6">{skill.name}</span>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="position-relative overflow-hidden w-100 py-2">
-                        <div
-                            className="d-flex flex-nowrap"
-                            style={{
-                                width: 'max-content',
-                                animation: 'scrollRight 25s linear infinite'
-                            }}
-                        >
-                            {[...row2Skills, ...row2Skills, ...row2Skills].map((skill, sIdx) => {
-                                const IconComponent = skill.icon;
-                                return (
-                                    <div
-                                        key={`r2-${sIdx}`}
-                                        className="d-flex flex-column align-items-center justify-content-center px-4"
-                                        style={{ minWidth: '120px' }}
-                                    >
-                                        <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
-                                            {skill.isImage ? (
-                                                <img 
-                                                    src={IconComponent} 
-                                                    alt={skill.name} 
-                                                    style={{ 
-                                                        width: '38px', 
-                                                        height: '38px', 
-                                                        objectFit: 'contain',
-                                                        filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
-                                                    }} 
-                                                />
-                                            ) : (
-                                                <IconComponent />
-                                            )}
+                        <div className="position-relative overflow-hidden w-100 py-2">
+                            <div
+                                className="d-flex flex-nowrap"
+                                style={{
+                                    width: 'max-content',
+                                    animation: 'scrollRight 25s linear infinite'
+                                }}
+                            >
+                                {[...row2Skills, ...row2Skills, ...row2Skills].map((skill, sIdx) => {
+                                    const IconComponent = skill.icon;
+                                    return (
+                                        <div
+                                            key={`r2-${sIdx}`}
+                                            className="d-flex flex-column align-items-center justify-content-center px-4"
+                                            style={{ minWidth: '120px' }}
+                                        >
+                                            <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
+                                                {skill.isImage ? (
+                                                    <img 
+                                                        src={IconComponent} 
+                                                        alt={skill.name} 
+                                                        style={{ 
+                                                            width: '38px', 
+                                                            height: '38px', 
+                                                            objectFit: 'contain',
+                                                            filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
+                                                        }} 
+                                                    />
+                                                ) : (
+                                                    <IconComponent />
+                                                )}
+                                            </div>
+                                            <span>{skill.name}</span>
                                         </div>
-                                        <span className="fw-medium text-nowrap fs-6">{skill.name}</span>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                ) : (
+
+                    <div className="d-none d-md-flex flex-wrap py-4">
+                        {filteredTechSkills.map((skill, sIdx) => {
+                            const IconComponent = skill.icon;
+                            return (
+                                <div
+                                    key={`cat-${sIdx}`}
+                                    className="d-flex flex-column align-items-center justify-content-center px-4 mb-4"
+                                    style={{ minWidth: '120px' }}
+                                >
+                                    <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
+                                        {skill.isImage ? (
+                                            <img 
+                                                src={IconComponent} 
+                                                alt={skill.name} 
+                                                style={{ 
+                                                    width: '38px', 
+                                                    height: '38px', 
+                                                    objectFit: 'contain',
+                                                    filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
+                                                }} 
+                                            />
+                                        ) : (
+                                            <IconComponent />
+                                        )}
+                                    </div>
+                                    <span>{skill.name}</span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
 
                 <div className="pt-3 border-top border-secondary border-opacity-25">
                     <div className="mb-4">
@@ -153,20 +212,7 @@ function Skills({ theme }) {
                                     style={{ flex: '0 0 20%', maxWidth: '20%' }}
                                 >
                                     <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
-                                        {skill.isImage ? (
-                                            <img 
-                                                src={IconComponent} 
-                                                alt={skill.name} 
-                                                style={{ 
-                                                    width: '30px', 
-                                                    height: '30px', 
-                                                    objectFit: 'contain',
-                                                    filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
-                                                }} 
-                                            />
-                                        ) : (
-                                            <IconComponent />
-                                        )}
+                                        <IconComponent />
                                     </div>
                                     <span className="text-center text-truncate w-100" style={{ fontSize: '0.62rem', lineHeight: '1.1' }}>
                                         {skill.name}
@@ -186,22 +232,56 @@ function Skills({ theme }) {
                                     style={{ minWidth: '120px' }}
                                 >
                                     <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
-                                        {skill.isImage ? (
-                                            <img 
-                                                src={IconComponent} 
-                                                alt={skill.name} 
-                                                style={{ 
-                                                    width: '38px', 
-                                                    height: '38px', 
-                                                    objectFit: 'contain',
-                                                    filter: (isBlack && skill.invertInDark) ? 'invert(1)' : 'none'
-                                                }} 
-                                            />
-                                        ) : (
-                                            <IconComponent />
-                                        )}
+                                        <IconComponent />
                                     </div>
-                                    <span className="fw-medium text-nowrap fs-6">{skill.name}</span>
+                                    <span>{skill.name}</span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                <div className="pt-4 border-top border-secondary border-opacity-25 mt-4">
+                    <div className="mb-4">
+                        <h4 className="mb-2">Networking Foundations</h4>
+                        <p className="subhead text-muted">
+                            LAN setups, subnetting, and basic diagnostic commands for connectivity.
+                        </p>
+                    </div>
+
+                    <div className="row g-2 d-flex d-md-none py-2 justify-content-center">
+                        {networkingSkills.map((skill, nIdx) => {
+                            const IconComponent = skill.icon;
+                            return (
+                                <div
+                                    key={`mob-net-${nIdx}`}
+                                    className="col-20 d-flex flex-column align-items-center justify-content-center p-1 mb-2"
+                                    style={{ flex: '0 0 20%', maxWidth: '20%' }}
+                                >
+                                    <div className="fs-1 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
+                                        <IconComponent />
+                                    </div>
+                                    <span className="text-center text-truncate w-100" style={{ fontSize: '0.62rem', lineHeight: '1.1' }}>
+                                        {skill.name}
+                                    </span>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="d-none d-md-flex flex-wrap py-2">
+                        {networkingSkills.map((skill, nIdx) => {
+                            const IconComponent = skill.icon;
+                            return (
+                                <div
+                                    key={`net-${nIdx}`}
+                                    className="d-flex flex-column align-items-center justify-content-center px-4 mb-3"
+                                    style={{ minWidth: '120px' }}
+                                >
+                                    <div className="fs-2 d-flex align-items-center justify-content-center mb-1" style={{ color: skill.color }}>
+                                        <IconComponent />
+                                    </div>
+                                    <span>{skill.name}</span>
                                 </div>
                             );
                         })}

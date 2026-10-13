@@ -20,7 +20,7 @@ function Project({ theme }) {
     const sortedYears = Object.keys(groupedProjects).sort((a, b) => b - a);
 
     return (
-        <section id="projects" className={`py-5 ${isBlack ? 'bg-black text-light' : 'bg-white text-dark'}`}>
+        <section id="projects" className={`py-md-5 pt-5 ${isBlack ? 'bg-black text-light' : 'bg-white text-dark'}`}>
             <div className="container p-3 px-md-5">
                 
                 <div className="mb-md-5 mb-5">
@@ -90,18 +90,7 @@ function Project({ theme }) {
                                                                     src={primaryImage.img} 
                                                                     alt={project.title} 
                                                                     className="w-100 h-100 object-fit-fill" 
-                                                                    style={{ 
-                                                                        filter: 'grayscale(100%)', 
-                                                                        transition: 'filter 0.3s ease, transform 0.3s ease' 
-                                                                    }}
-                                                                    onMouseEnter={(e) => {
-                                                                        e.currentTarget.style.filter = 'grayscale(0%)';
-                                                                        e.currentTarget.style.transform = 'scale(1.05)';
-                                                                    }}
-                                                                    onMouseLeave={(e) => {
-                                                                        e.currentTarget.style.filter = 'grayscale(100%)';
-                                                                        e.currentTarget.style.transform = 'scale(1)';
-                                                                    }}
+                                                              
                                                                 />
                                                             </div>
                                                         )}
@@ -144,7 +133,7 @@ function Project({ theme }) {
                                                                             )}
                                                                         </>
                                                                     ) : (
-                                                                        <span className="text-muted d-flex align-items-center gap-1 small opacity-75">
+                                                                        <span className="text-muted d-flex align-items-center gap-1 small opacity-75 private">
                                                                             <FiLock size={13} />
                                                                             <span>Private</span>
                                                                         </span>
