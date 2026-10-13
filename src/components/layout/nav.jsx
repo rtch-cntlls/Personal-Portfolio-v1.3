@@ -7,7 +7,7 @@ function Nav({ theme, toggleTheme }) {
     { name: 'About', href: '#about', active: false },
     { name: 'Projects', href: '#projects', active: true },
     { name: 'Stack & Skills', href: '#skills', active: true },
-    { name: 'Services', href: '#services', active: false },
+    // { name: 'Services', href: '#services', active: false },
   ];
 
   const ThemeToggleButton = ({ isMobile = false }) => (

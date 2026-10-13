@@ -98,4 +98,7 @@ p {
     font-size: 11px;
     
   }
+  h2, h4, h5, .fs-4, .logo, .tagline{
+    font-family: 'Anton', 'Impact', sans-serif !important;
+  }
 }
