@@ -1,23 +1,4 @@
-import motolinkImg from '../assets/projects/motolink/admin-login.PNG';
-import motolinkdashbord from '../assets/projects/motolink/dashboard.PNG';
-import motolinkinventory from '../assets/projects/motolink/inventory.PNG';
-import motolinkinventorydetails from '../assets/projects/motolink/inventory-details.PNG';
-import motolinkpos from '../assets/projects/motolink/pos.PNG';
-import motolinktransaction from '../assets/projects/motolink/transaction.PNG';
-import motolinkproduct from '../assets/projects/motolink/product.PNG';
-import motolinkproductdetails from '../assets/projects/motolink/product-details.PNG';
-import motolinkorder from '../assets/projects/motolink/order.PNG';
-import motolinkcustomer from '../assets/projects/motolink/customer.PNG';
-import motolinkpromo from '../assets/projects/motolink/promo.PNG';
-import motolinkpromocreate from '../assets/projects/motolink/promo-create.PNG';
-import motolinkservicelist from '../assets/projects/motolink/service-list.PNG';
-import motolinkbooking from '../assets/projects/motolink/booking.PNG';
-import motolinkservicelog from '../assets/projects/motolink/service-log-details.PNG';
-import motolinkanalytics from '../assets/projects/motolink/analytics.PNG';
-import motolinksalereport from '../assets/projects/motolink/sale-report.PNG';
-import motolinkservicereport from '../assets/projects/motolink/service-report.PNG';
-import motolinksettings from '../assets/projects/motolink/settings.PNG';
-
+import { motolinkImages } from '../assets/projects/motolink/motolinkAssets';
 
 import activehubImg from '../assets/projects/gym/1.png';
 import assetflowImg from '../assets/projects/inv/1.png';
@@ -59,7 +40,7 @@ export const getProjects = () => [
     {
         title: "GHL",
         subtitle: "GoHighLevel Specialist Portfolio",
-       description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
+        description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
         tech: ["React", "Bootstrap", "Vite", "CSS3"],
         images: [
             { img: portfolio2, caption: "Website Portfolio" }
@@ -78,7 +59,7 @@ export const getProjects = () => [
             { img: assetflowImg, type: "admin", caption: "Inventory Dashboard" }
         ],
         link: "https://school-ims.vercel.app/",
-        linkType: "demo",
+        linkType: "live",
         github: "#",
         year: 2026
     },
@@ -99,38 +80,20 @@ export const getProjects = () => [
         title: "MotoLink",
         subtitle: "MotoCycle Parts E-commerce & Services Management System",
         description: "A full-stack e-commerce platform built for motorcycle parts and services. It handles inventory management, secure checkout flows, service booking appointments, and a dedicated admin dashboard.",
-        tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "AJAX", "Chart.js", "ApexChart.js",
-            "Gemini Flash 2.5 API", "IPROG SMS API", "OAuth 2.0"],
-        images: [
-            { img: motolinkImg, type: "admin", caption: "Admin Login Portal" },
-            { img: motolinkdashbord, type: "admin", caption: "Admin Dashboard" },
-            { img: motolinkinventory, type: "admin", caption: "Inventory Management" },
-            { img: motolinkinventorydetails, type: "admin", caption: "Inventory Details" },
-            { img: motolinkpos, type: "admin", caption: "Point of Sale" },
-            { img: motolinktransaction, type: "admin", caption: "Sale Transaction Management" },
-            { img: motolinkproduct, type: "admin", caption: "Product Management" },
-            { img: motolinkproductdetails, type: "admin", caption: "Product Details" },
-            { img: motolinkorder, type: "admin", caption: "Order Management" },
-            { img: motolinkcustomer, type: "admin", caption: "Customer Management" },
-            { img: motolinkpromo, type: "admin", caption: "Promo & Discount Management" },
-            { img: motolinkpromocreate, type: "admin", caption: "Create Product Discount" },
-            { img: motolinkservicelist, type: "admin", caption: "Services Management" },
-            { img: motolinkbooking, type: "admin", caption: "Booking Management" },
-            { img: motolinkservicelog, type: "admin", caption: "AI Service Log Details" },
-            { img: motolinkanalytics, type: "admin", caption: "Overview Analytics" },
-            { img: motolinksalereport, type: "admin", caption: "Sale Report" },
-            { img: motolinkservicereport, type: "admin", caption: "Service report" },
-            { img: motolinksettings, type: "admin", caption: "Platform Settings" },
+        tech: [
+            "Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "AJAX", 
+            "Chart.js", "ApexChart.js", "Gemini Flash 2.5 API", "IPROG SMS API", "OAuth 2.0"
         ],
-        link: "#",
-        linkType: "demo",
+        images: motolinkImages,
+        link: "https://motolink.lovestoblog.com",
+        linkType: "live",
         github: "#",
         year: 2025
     },
     {
         title: "E-Rent",
         subtitle: "Property Rental Platform",
-      description: "A web platform for finding and listing rental properties. Users can search for rental spaces, book places to stay, and upgrade their accounts to become hosts so they can list and manage their own properties.",
+        description: "A web platform for finding and listing rental properties. Users can search for rental spaces, book places to stay, and upgrade their accounts to become hosts so they can list and manage their own properties.",
         tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "OAuth 2.0"],
         images: [
             { img: propertyImg, type: "public", caption: "Rental Search Feed" }
