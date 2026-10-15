@@ -160,7 +160,7 @@ function Project({ theme }) {
 
                                                                 <Link 
                                                                     to={`/project-details/${encodeURIComponent(project.title.toLowerCase())}`} 
-                                                                    className={`btn btn-sm ${isBlack ? 'btn-outline-light' : 'btn-outline-dark'} d-flex align-items-center gap-1`}
+                                                                    className={`btn btn-sm btn-details ${isBlack ? 'btn-outline-light' : 'btn-outline-dark'} d-flex align-items-center gap-1`}
                                                                     title="View Full Details" >
                                                                     <span className="icon d-flex align-items-center">
                                                                         <FiInfo size={14} />

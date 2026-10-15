@@ -25,32 +25,6 @@ export const getProjects = () => [
         year: 2026
     },
     {
-        title: "Webflow",
-        subtitle: "SHS Personal Portfolio (2)",
-        description: "A simple personal portfolio website created in Webflow to showcase background, interests, core skills, and career goals.",
-        tech: ["WebFlow"],
-        images: [
-            { img: portfolio1, caption: "Website Portfolio" }
-        ],
-        link: "#",
-        linkType: "demo",
-        github: "#",
-        year: 2026
-    },
-    {
-        title: "GHL",
-        subtitle: "GoHighLevel Specialist Portfolio",
-        description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
-        tech: ["React", "Bootstrap", "Vite", "CSS3"],
-        images: [
-            { img: portfolio2, caption: "Website Portfolio" }
-        ],
-        link: "https://hanneygraceleominares-ghl-portfolio.vercel.app/",
-        linkType: "live",
-        github: "#",
-        year: 2026
-    },
-    {
         title: "AssetFlow",
         subtitle: "School Asset & Inventory Management",
         description: "A web application for tracking school equipment, managing borrower records, and monitoring asset status, including items under maintenance or scheduled for write-off.",
@@ -72,6 +46,32 @@ export const getProjects = () => [
             { img: nces, type: "admin", caption: "Records Archive Dashboard" }
         ],
         link: "#",
+        linkType: "live",
+        github: "#",
+        year: 2026
+    },
+    {
+        title: "Webflow",
+        subtitle: "SHS Personal Portfolio (2)",
+        description: "A simple personal portfolio website created in Webflow to showcase background, interests, core skills, and career goals.",
+        tech: ["WebFlow"],
+        images: [
+            { img: portfolio1, caption: "Website Portfolio" }
+        ],
+        link: "#",
+        linkType: "demo",
+        github: "#",
+        year: 2026
+    },
+    {
+        title: "GHL",
+        subtitle: "GoHighLevel Specialist Portfolio",
+        description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
+        tech: ["React", "Bootstrap", "Vite", "CSS3"],
+        images: [
+            { img: portfolio2, caption: "Website Portfolio" }
+        ],
+        link: "https://hanneygraceleominares-ghl-portfolio.vercel.app/",
         linkType: "live",
         github: "#",
         year: 2026

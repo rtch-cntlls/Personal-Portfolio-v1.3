@@ -15,6 +15,10 @@ function ProjectDetails({ theme }) {
     const [isHovered, setIsHovered] = useState(false);
     const timeoutRef = useRef(null);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [title]);
+
     const project = projects.find(
         (p) => encodeURIComponent(p.title.toLowerCase()) === title
     );
