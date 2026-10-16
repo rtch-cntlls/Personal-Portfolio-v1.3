@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getProjects } from '../data/projectsData';
 import { FaGithub } from 'react-icons/fa';
-import { FiExternalLink, FiArrowLeft, FiLock, FiCalendar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiExternalLink, FiArrowLeft, FiLock, FiCalendar, FiChevronLeft, FiChevronRight, FiMaximize2, FiX } from 'react-icons/fi';
 
 function ProjectDetails({ theme }) {
     const { title } = useParams();
@@ -13,6 +13,9 @@ function ProjectDetails({ theme }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
     const [isHovered, setIsHovered] = useState(false);
+    
+    const [modalImage, setModalImage] = useState(null);
+    
     const timeoutRef = useRef(null);
 
     useEffect(() => {
@@ -56,14 +59,14 @@ function ProjectDetails({ theme }) {
         : baseFilteredImages;
 
     useEffect(() => {
-        if (!hasMultiple || isHovered) return;
+        if (!hasMultiple || isHovered || modalImage) return;
 
         const interval = setInterval(() => {
             handleNext();
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [currentIndex, hasMultiple, isHovered]);
+    }, [currentIndex, hasMultiple, isHovered, modalImage]);
 
     const handleNext = () => {
         if (!hasMultiple) return;
@@ -102,6 +105,22 @@ function ProjectDetails({ theme }) {
     const activeDotIndex = currentIndex === baseFilteredImages.length ? 0 : currentIndex;
     const currentImage = baseFilteredImages[activeDotIndex] || baseFilteredImages[0];
 
+    const getVisibleDots = () => {
+        const total = baseFilteredImages.length;
+        if (total <= 5) {
+            return Array.from({ length: total }, (_, i) => i);
+        }
+        let start = Math.max(0, activeDotIndex - 2);
+        let end = start + 5;
+        if (end > total) {
+            end = total;
+            start = Math.max(0, end - 5);
+        }
+        return Array.from({ length: end - start }, (_, i) => start + i);
+    };
+
+    const visibleDots = getVisibleDots();
+
     return (
         <div className={`py-4 py-md-5 min-vh-100 ${isBlack ? 'bg-black text-light' : 'bg-white text-dark'}`}>
             <div className="container px-3 px-md-5">
@@ -109,7 +128,7 @@ function ProjectDetails({ theme }) {
                 <div className="mb-4 mt-5">
                     <Link to="/" className={`text-decoration-none d-inline-flex align-items-center gap-2 ${isBlack ? 'text-light' : 'text-dark'}`}>
                         <FiArrowLeft size={18} />
-                        <span>Back to Projects</span>
+                        <span className="small text-secondary">Back to Projects</span>
                     </Link>
                 </div>
 
@@ -161,7 +180,7 @@ function ProjectDetails({ theme }) {
                                     className="btn btn-primary d-flex align-items-center gap-2 px-4 py-2"
                                 >
                                     <FiExternalLink size={18} />
-                                    <span className="small">{project.linkType === 'live' ? 'Live' : 'Demo'}</span>
+                                    <span className="small">{project.linkType === 'live' ? 'Visit Live Site' : 'Demo'}</span>
                                 </a>
                             )}
 
@@ -180,7 +199,7 @@ function ProjectDetails({ theme }) {
                             {!hasValidLink && !hasValidGithub && (
                                 <div className="text-muted d-flex align-items-center gap-2 small">
                                     <FiLock size={16} />
-                                    <span>This repository and live preview are currently private.</span>
+                                    <span>This repository and live webiste are currently private.</span>
                                 </div>
                             )}
                         </div>
@@ -243,16 +262,26 @@ function ProjectDetails({ theme }) {
                                                 className="w-100 flex-shrink-0 d-flex flex-column align-items-center justify-content-center"
                                                 style={{ minWidth: '100%' }}
                                             >
-                                                <img 
-                                                    src={imgObj.img} 
-                                                    alt={`${project.title} slide ${idx + 1}`} 
-                                                    className="w-100 object-fit-contain rounded border shadow-sm" 
+                                                <div 
+                                                    className="position-relative w-100 modern-image-wrapper rounded border overflow-hidden"
+                                                    onClick={() => setModalImage(imgObj)}
                                                     style={{ 
-                                                        maxHeight: '480px', 
-                                                        backgroundColor: isBlack ? '#111' : '#f8f9fa',
-                                                        borderColor: isBlack ? '#333' : '#dee2e6'
+                                                        borderColor: isBlack ? '#333' : '#dee2e6',
+                                                        backgroundColor: isBlack ? '#111' : '#f8f9fa'
                                                     }}
-                                                />
+                                                >
+                                                    <img 
+                                                        src={imgObj.img} 
+                                                        alt={`${project.title} slide ${idx + 1}`} 
+                                                        className="w-100 object-fit-contain modern-preview-img shadow-sm" 
+                                                        style={{ maxHeight: '480px' }}
+                                                    />
+                                                    <div className="modern-image-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                                                        <span className="badge bg-dark bg-opacity-75 text-white px-3 py-2 rounded-pill d-flex align-items-center gap-2 shadow">
+                                                            <FiMaximize2 size={14} /> Click to expand
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
@@ -284,8 +313,8 @@ function ProjectDetails({ theme }) {
                                         </span>
 
                                         {hasMultiple && (
-                                            <div className="d-flex gap-1">
-                                                {baseFilteredImages.map((_, dotIdx) => (
+                                            <div className="d-flex gap-1 align-items-center">
+                                                {visibleDots.map((dotIdx) => (
                                                     <button
                                                         key={dotIdx}
                                                         onClick={() => {
@@ -314,6 +343,39 @@ function ProjectDetails({ theme }) {
                 </div>
 
             </div>
+
+            {modalImage && (
+                <div 
+                    className="position-fixed top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center bg-black bg-opacity-75 p-3"
+                    style={{ zIndex: 1050 }}
+                    onClick={() => setModalImage(null)}
+                >
+                    <div 
+                        className="position-relative max-w-100 max-h-100 p-2 bg-dark rounded shadow-lg d-flex flex-column align-items-center"
+                        style={{ maxWidth: '90vw', maxHeight: '90vh' }}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button 
+                            className="position-absolute top-0 end-0 m-3 btn btn-dark rounded-circle p-2 text-white border-secondary"
+                            onClick={() => setModalImage(null)}
+                            style={{ zIndex: 1060 }}
+                        >
+                            <FiX size={20} />
+                        </button>
+                        <img 
+                            src={modalImage.img} 
+                            alt="Expanded preview" 
+                            className="img-fluid rounded object-fit-contain" 
+                            style={{ maxHeight: '75vh', maxWidth: '100%' }}
+                        />
+                        {modalImage.caption && (
+                            <p className="text-light text-center small mt-3 mb-0 px-2">
+                                {modalImage.caption}
+                            </p>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

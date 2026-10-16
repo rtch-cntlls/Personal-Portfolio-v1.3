@@ -1,19 +1,16 @@
 import { motolinkImages } from '../assets/projects/motolink/motolinkAssets';
-
-import erentlanding from '../assets/projects/e-rent/landing.PNG';
-import erentabout from '../assets/projects/e-rent/about.PNG';
-import erentlogin from '../assets/projects/e-rent/login.PNG';
-import erentsignup from '../assets/projects/e-rent/sign-up.PNG';
-import erentupgrade from '../assets/projects/e-rent/upgrade.PNG';
+import { erentImages } from '../assets/projects/e-rent/erentAssets';
+import { ncesImages } from '../assets/projects/nces/ncesAssets';
 
 import activehubImg from '../assets/projects/gym/1.png';
 import assetflowImg from '../assets/projects/inv/1.png';
 
 import portfolio1 from '../assets/projects/portfolio/1.png';
 import portfolio2 from '../assets/projects/portfolio/2.PNG';
-import nces from '../assets/projects/nces/1.PNG';
 import care from '../assets/projects/care/1.png';
-import pos from '../assets/projects/pos/1.png';
+import poslogin from '../assets/projects/pos/login.png';
+import posview from '../assets/projects/pos/pos.png';
+import poscreate from '../assets/projects/pos/create.png';
 import mvc from '../assets/projects/mvc/1.png';
 
 export const getProjects = () => [
@@ -47,10 +44,8 @@ export const getProjects = () => [
         title: "StudentArchive",
         subtitle: "Student Permanent Record Digitalization System",
         description: "A web application for digitizing, backing up, and managing student Form 137 permanent records online. It allows school staff to safely archive files and quickly search or retrieve records.",
-        tech: ["Next.js", "Supabase", "Bootstrap5", "CSS3", "hCaptcha"],
-        images: [
-            { img: nces, type: "admin", caption: "Records Archive Dashboard" }
-        ],
+        tech: ["Next.js", "Supabase", "PostgreSQL", "Bootstrap5", "CSS3", "hCaptcha"],
+        images: ncesImages,
         link: "#",
         linkType: "live",
         github: "#",
@@ -101,14 +96,7 @@ export const getProjects = () => [
         subtitle: "Property Rental Platform",
         description: "A web platform for finding and listing rental properties. Users can search for rental spaces, book places to stay, and upgrade their accounts to become hosts so they can list and manage their own properties.",
         tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "OAuth 2.0"],
-        images: [
-            { img: erentlanding, type: "public", caption: "Landing Page" },
-            { img: erentabout, type: "public", caption: "About Page" },
-            { img: erentupgrade, type: "public", caption: "Upgrade Page" },
-            { img: erentlogin, type: "public", caption: "Login Page" },
-            { img: erentsignup, type: "public", caption: "Sign up Page" },
-
-        ],
+        images: erentImages,
         link: "#",
         linkType: "demo",
         github: "#",
@@ -133,7 +121,9 @@ export const getProjects = () => [
         description: "A desktop Point of Sale (POS) application for local snack and beverage shops. It helps process customer transactions, manage inventory, and calculate daily sales quickly on a single system.",
         tech: ["Visual Basic", "MySQL", "Windows Forms"],
         images: [
-            { img: pos, caption: "POS Terminal Screen" }
+            { img: poslogin},
+            { img: posview},
+            { img: poscreate},
         ],
         link: "#",
         linkType: "demo",

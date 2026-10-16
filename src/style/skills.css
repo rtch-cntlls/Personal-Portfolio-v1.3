@@ -1,30 +1,58 @@
- h4{
-    font-family: 'Anton', 'Impact', sans-serif !important;
-    font-size: clamp(1.2rem, 3vw, 1.7rem);
- }
- .fs-4{
-    font-family: 'Anton', 'Impact', sans-serif !important;
-    font-size: clamp(2rem, 5vw, 1rem) !important;
-    color: #0366c9;
- }
- h5{
-    font-family: 'Anton', 'Impact', sans-serif !important;
-    font-size: clamp(0.9rem, 3vw, 1.6rem);
+ h4 {
+     font-family: 'Anton', 'Impact', sans-serif !important;
+     font-size: clamp(1.2rem, 3vw, 1.7rem);
  }
 
- .project-img{
+ .fs-4 {
+     font-family: 'Anton', 'Impact', sans-serif !important;
+     font-size: clamp(2rem, 5vw, 1rem) !important;
+     color: #0366c9;
+ }
+
+ h5 {
+     font-family: 'Anton', 'Impact', sans-serif !important;
+     font-size: clamp(0.9rem, 3vw, 1.6rem);
+ }
+
+ .project-img {
      height: 200px;
  }
 
  .custom-card-radius {
-    border-radius: 0;
-}
+     border-radius: 0;
+ }
 
-@media (min-width: 768px) {
-    .custom-card-radius {
-        border-radius: 0 4rem 0 4rem;
-    }
+ .modern-image-wrapper {
+     cursor: pointer;
+     position: relative;
+ }
+
+ .modern-preview-img {
+     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+ }
+
+ .modern-image-overlay {
+     background: rgba(0, 0, 0, 0.25);
+     opacity: 0;
+     backdrop-filter: blur(2px);
+     transition: opacity 0.3s ease;
+ }
+
+ .modern-image-wrapper:hover .modern-preview-img {
+     transform: scale(1.03);
+ }
+
+ .modern-image-wrapper:hover .modern-image-overlay {
+     opacity: 1;
+ }
+.btn-primary{
+    background-color: #0366c9 !important;
 }
+ @media (min-width: 768px) {
+     .custom-card-radius {
+         border-radius: 0 4rem 0 4rem;
+     }
+ }
 
  @keyframes scrollLeft {
      0% {

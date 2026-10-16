@@ -14,7 +14,7 @@ import {
   SiPostgresql,
   SiFlask,
   SiWebflow, 
-  SiGithubcopilot
+  SiGithubcopilot,
 } from 'react-icons/si';
 
 import { FaJava, FaPython, FaCss3Alt, FaNetworkWired, FaServer, FaTerminal } from 'react-icons/fa';
@@ -52,11 +52,11 @@ export const getPreferredSkills = (isBlack) => [
 
 export const getNetworkingSkills = (isBlack) => [
   { name: "LAN Setup & Cabling", icon: FaNetworkWired, color: "#009688", subCategory: "LAN" },
-  { name: "TCP/IP & Subnetting", icon: FaServer, color: "#3f51b5", subCategory: "LAN" },
+  { name: "Switch & Router Setup", icon: FaServer, color: "#3f51b5", subCategory: "Hardware" },
+  { name: "IP Address & DHCP", icon: FaNetworkWired, color: "#00bcd4", subCategory: "Protocols & Addressing" },
 
   { name: "Ping & Traceroute", icon: FaTerminal, color: "#ff9800", subCategory: "Basic Networking Commands" },
   { name: "Ipconfig / Ifconfig", icon: FaTerminal, color: "#4caf50", subCategory: "Basic Networking Commands" },
-  { name: "Netstat & Nslookup", icon: FaTerminal, color: "#e91e63", subCategory: "Basic Networking Commands" },
 ];
 
 export const getLearningSkills = (isBlack) => [
