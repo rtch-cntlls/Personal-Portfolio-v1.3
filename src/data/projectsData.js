@@ -1,8 +1,14 @@
 import { motolinkImages } from '../assets/projects/motolink/motolinkAssets';
 
+import erentlanding from '../assets/projects/e-rent/landing.PNG';
+import erentabout from '../assets/projects/e-rent/about.PNG';
+import erentlogin from '../assets/projects/e-rent/login.PNG';
+import erentsignup from '../assets/projects/e-rent/sign-up.PNG';
+import erentupgrade from '../assets/projects/e-rent/upgrade.PNG';
+
 import activehubImg from '../assets/projects/gym/1.png';
 import assetflowImg from '../assets/projects/inv/1.png';
-import propertyImg from '../assets/projects/erent/1.PNG';
+
 import portfolio1 from '../assets/projects/portfolio/1.png';
 import portfolio2 from '../assets/projects/portfolio/2.PNG';
 import nces from '../assets/projects/nces/1.PNG';
@@ -96,7 +102,12 @@ export const getProjects = () => [
         description: "A web platform for finding and listing rental properties. Users can search for rental spaces, book places to stay, and upgrade their accounts to become hosts so they can list and manage their own properties.",
         tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "OAuth 2.0"],
         images: [
-            { img: propertyImg, type: "public", caption: "Rental Search Feed" }
+            { img: erentlanding, type: "public", caption: "Landing Page" },
+            { img: erentabout, type: "public", caption: "About Page" },
+            { img: erentupgrade, type: "public", caption: "Upgrade Page" },
+            { img: erentlogin, type: "public", caption: "Login Page" },
+            { img: erentsignup, type: "public", caption: "Sign up Page" },
+
         ],
         link: "#",
         linkType: "demo",
