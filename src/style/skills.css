@@ -14,8 +14,21 @@
      font-size: clamp(0.9rem, 3vw, 1.6rem);
  }
 
+ h6 {
+     font-family: 'Anton', 'Impact', sans-serif !important;
+     font-size: clamp(0.9rem, 3vw, 1.5rem);
+ }
+
+ .empty{
+    font-size: clamp(0.5rem, 3vw, 0.8rem);
+ }
+
+ .screenshot{
+    height: 95px;
+ }
+
  .project-img {
-     height: 200px;
+     height: 250px;
  }
 
  .custom-card-radius {

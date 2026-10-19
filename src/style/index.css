@@ -87,6 +87,9 @@ p {
     max-width: 320px;
   }
 
+  .screenshot{
+    height: 70px !important;
+  }
   .availability-badge {
     bottom: 15px;
     right: 0px;
@@ -95,7 +98,7 @@ p {
   }
 
   .project-img{
-     height: 100px !important;
+     height: 190px !important;
   }
 
   .link{

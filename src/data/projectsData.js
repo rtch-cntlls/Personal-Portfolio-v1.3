@@ -36,7 +36,7 @@ export const getProjects = () => [
             { img: assetflowImg, type: "admin", caption: "Inventory Dashboard" }
         ],
         link: "https://school-ims.vercel.app/",
-        linkType: "live",
+        linkType: "demo",
         github: "#",
         year: 2026
     },
@@ -47,7 +47,7 @@ export const getProjects = () => [
         tech: ["Next.js", "Supabase", "PostgreSQL", "Bootstrap5", "CSS3", "hCaptcha"],
         images: ncesImages,
         link: "#",
-        linkType: "live",
+        linkType: "demo",
         github: "#",
         year: 2026
     },
@@ -97,8 +97,8 @@ export const getProjects = () => [
         description: "A web platform for finding and listing rental properties. Users can search for rental spaces, book places to stay, and upgrade their accounts to become hosts so they can list and manage their own properties.",
         tech: ["Laravel12", "MySQL", "Bootstrap5", "CSS3", "JavaScript", "OAuth 2.0"],
         images: erentImages,
-        link: "#",
-        linkType: "demo",
+        link: "https://property-rental.infinityfree.io/",
+        linkType: "live",
         github: "#",
         year: 2025
     },

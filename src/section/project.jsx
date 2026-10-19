@@ -30,17 +30,17 @@ function Project({ theme }) {
                     </p>
                 </div>
 
-                <div className="d-flex flex-column gap-2">
+                <div className="d-flex flex-column gap-4">
                     {sortedYears.map((year, yearIdx) => {
                         const isEven = yearIdx % 2 === 0;
                         const dotColor = isBlack ? '#6c757d' : '#212529';
 
                         return (
                             <div key={year} className="timeline-group">
-                                <div className="d-flex align-items-center mb-2">
+                                <div className="d-flex align-items-center mb-4">
                                     {isEven ? (
                                         <>
-                                            <span className="fs-4 me-3">{year}</span>
+                                            <span className="fs-4 me-3 fw-bold">{year}</span>
                                             <div 
                                                 className="flex-grow-1" 
                                                 style={{ 
@@ -64,119 +64,20 @@ function Project({ theme }) {
                                                     opacity: 0.6 
                                                 }}
                                             ></div>
-                                            <span className="fs-4 ms-3">{year}</span>
+                                            <span className="fs-4 ms-3 fw-bold">{year}</span>
                                         </>
                                     )}
                                 </div>
 
-                                <div className="row g-3 g-md-4">
-                                    {groupedProjects[year].map((project, idx) => {
-                                        const hasValidLink = project.link && project.link !== '#' && project.link.trim() !== '';
-                                        const hasValidGithub = project.github && project.github !== '#' && project.github.trim() !== '';
-                                        const hasAnyLink = hasValidLink || hasValidGithub;
-                                        const primaryImage = project.images && project.images.length > 0 ? project.images[0] : null;
-
-                                        return (
-                                            <div key={`proj-${year}-${idx}`} className="col-6 col-md-4">
-                                                <div 
-                                                    className={`card h-100 shadow-sm overflow-hidden d-flex flex-column justify-content-between custom-card-radius ${
-                                                        isBlack ? 'bg-black text-light' : 'bg-white text-dark'
-                                                    }`}
-                                                >
-                                                    <div>
-                                                        {primaryImage && (
-                                                            <div className="position-relative overflow-hidden border-bottom project-img">
-                                                                <img 
-                                                                    src={primaryImage.img} 
-                                                                    alt={project.title} 
-                                                                    className="w-100 h-100 object-fit-fill" 
-                                                                    style={{ 
-                                                                        filter: 'grayscale(100%)', 
-                                                                        transition: 'filter 0.3s ease, transform 0.3s ease' 
-                                                                    }}
-                                                                    onMouseEnter={(e) => {
-                                                                        e.currentTarget.style.filter = 'grayscale(0%)';
-                                                                        e.currentTarget.style.transform = 'scale(1.05)';
-                                                                    }}
-                                                                    onMouseLeave={(e) => {
-                                                                        e.currentTarget.style.filter = 'grayscale(100%)';
-                                                                        e.currentTarget.style.transform = 'scale(1)';
-                                                                    }}
-                                                                />
-                                                            </div>
-                                                        )}
-                                                        <div className="p-2 p-md-4">
-                                                            <h5 className="mb-1 text-truncate">{project.title}</h5>
-                                                            
-                                                            {project.subtitle && (
-                                                                <p className="text-muted small mb-2 fw-medium text-truncate d-none d-md-block">
-                                                                    {project.subtitle}
-                                                                </p>
-                                                            )}
-                                                            
-                                                            <div className="d-flex flex-wrap align-items-center justify-content-between gap-2">
-                                                                <div className="d-flex align-items-center gap-3">
-                                                                    {hasAnyLink ? (
-                                                                        <>
-                                                                            {hasValidLink && (
-                                                                                <a 
-                                                                                    href={project.link} 
-                                                                                    target="_blank" 
-                                                                                    rel="noopener noreferrer" 
-                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small link ${isBlack ? 'text-light' : 'text-dark'}`}
-                                                                                    title={project.linkType === 'live' ? 'View Live Site' : 'View Demo'}
-                                                                                >
-                                                                                     <span className="icon d-flex align-items-center">
-                                                                                        <FiExternalLink size={14} /> 
-                                                                                    </span>
-                                                                                    
-                                                                                    <span>{project.linkType === 'live' ? 'Live' : 'Demo'}</span>
-                                                                                </a>
-                                                                            )}
-                                                                            {hasValidGithub && (
-                                                                                <a 
-                                                                                    href={project.github} 
-                                                                                    target="_blank" 
-                                                                                    rel="noopener noreferrer" 
-                                                                                    className={`text-decoration-none d-flex align-items-center gap-1 small link ${isBlack ? 'text-light' : 'text-dark'}`}
-                                                                                    title="View Source Code"
-                                                                                >
-                                                                                    <span className="icon d-flex align-items-center">
-                                                                                        <FaGithub size={14} /> 
-                                                                                    </span>
-                                                                                    <span>Code</span>
-                                                                                </a>
-                                                                            )}
-                                                                        </>
-                                                                    ) : (
-                                                                        <span className="text-muted d-flex align-items-center gap-1 small opacity-75 link">
-                                                                            <span className="icon d-flex align-items-center">
-                                                                               <FiLock size={14} />
-                                                                            </span>
-                                                                            <span>Private</span>
-                                                                        </span>
-                                                                    )}
-                                                                </div>
-
-                                                                <Link 
-                                                                    to={`/project-details/${encodeURIComponent(project.title.toLowerCase())}`} 
-                                                                    className={`btn btn-sm btn-details ${isBlack ? 'btn-outline-light' : 'btn-outline-dark'} d-flex align-items-center gap-1`}
-                                                                    title="View Full Details" >
-                                                                    <span className="icon d-flex align-items-center">
-                                                                        <FiInfo size={14} />
-                                                                    </span>
-                                                                    <span>Details</span>
-                                                                </Link>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        );
-                                    })}
+                                <div className="row g-4">
+                                    {groupedProjects[year].map((project, idx) => (
+                                        <ProjectCard 
+                                            key={`proj-${year}-${idx}`} 
+                                            project={project} 
+                                            isBlack={isBlack} 
+                                        />
+                                    ))}
                                 </div>
-
                             </div>
                         );
                     })}
@@ -184,6 +85,151 @@ function Project({ theme }) {
 
             </div>
         </section>
+    );
+}
+
+function ProjectCard({ project, isBlack }) {
+    const hasValidLink = project.link && project.link !== '#' && project.link.trim() !== '';
+    const hasValidGithub = project.github && project.github !== '#' && project.github.trim() !== '';
+    const hasAnyLink = hasValidLink || hasValidGithub;
+
+    const images = project.images && project.images.length > 0 ? project.images : [];
+    const primaryImage = images.length > 0 ? images[0].img : null;
+
+    const hasMultipleImages = images.length > 1;
+    const previewImages = hasMultipleImages ? images.slice(0, 3) : [];
+
+    return (
+        <div className="col-12 col-md-6">
+            <div 
+                className={`card h-100 shadow-sm overflow-hidden d-flex flex-column justify-content-between custom-card-radius ${
+                    isBlack ? 'bg-black border-secondary text-light' : 'bg-white border-light-subtle text-dark'
+                }`}
+            >
+                <div>
+                    {primaryImage ? (
+                        <div className="position-relative overflow-hidden border-bottom project-img">
+                            <img 
+                                src={primaryImage} 
+                                alt={project.title} 
+                                className="w-100 h-100 object-fit-fill" 
+                                style={{ 
+                                    filter: 'grayscale(100%)', 
+                                    transition: 'filter 0.3s ease, transform 0.3s ease' 
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.filter = 'grayscale(0%)';
+                                    e.currentTarget.style.transform = 'scale(1.05)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.filter = 'grayscale(100%)';
+                                    e.currentTarget.style.transform = 'scale(1)';
+                                }}
+                            />
+                        </div>
+                    ) : (
+                        <div className="d-flex align-items-center justify-content-center bg-secondary-subtle border-bottom" style={{ height: '220px' }}>
+                            <span className="text-muted">No Preview Available</span>
+                        </div>
+                    )}
+
+                    <div className="p-3 p-md-4">
+                        <h6 className="mb-3 text-truncate">{project.subtitle}</h6>
+
+                        <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                            <div className="d-flex align-items-center gap-3">
+                                {hasAnyLink ? (
+                                    <>
+                                        {hasValidLink && (
+                                            <a 
+                                                href={project.link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className={`text-decoration-none d-flex align-items-center gap-1 link fw-medium ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                title={project.linkType === 'live' ? 'Visit Live Site' : 'Visit Live Demo'}
+                                            >
+                                                <span className="icon d-flex align-items-center">
+                                                    <FiExternalLink size={16} /> 
+                                                </span>
+                                                <span>{project.linkType === 'live' ? 'Visit Live Site' : 'Visit Live Demo'}</span>
+                                            </a>
+                                        )}
+                                        {hasValidGithub && (
+                                            <a 
+                                                href={project.github} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className={`text-decoration-none d-flex align-items-center gap-1 link fw-medium ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                title="View Source Code"
+                                            >
+                                                <span className="icon d-flex align-items-center">
+                                                    <FaGithub size={16} /> 
+                                                </span>
+                                                <span>Code</span>
+                                            </a>
+                                        )}
+                                    </>
+                                ) : (
+                                    <span className="text-muted d-flex align-items-center gap-1 opacity-75 link">
+                                        <span className="icon d-flex align-items-center">
+                                           <FiLock size={16} />
+                                        </span>
+                                        <span>Private</span>
+                                    </span>
+                                )}
+                            </div>
+
+                            <Link 
+                                to={`/project-details/${encodeURIComponent(project.title.toLowerCase())}`} 
+                                className={`btn btn-sm btn-details ${isBlack ? 'btn-outline-light' : 'btn-outline-dark'} d-flex align-items-center gap-1`}
+                                title="View Full Details" 
+                            >
+                                <span className="icon d-flex align-items-center">
+                                    <FiInfo size={16} />
+                                </span>
+                                <span>Details</span>
+                            </Link>
+                        </div>
+
+                        <div className="pt-2 border-top">
+                            <div className="d-flex justify-content-between align-items-center mb-2">
+                                <span className="link text-muted fw-medium">Gallery</span>
+                                {hasMultipleImages && (
+                                    <Link 
+                                        to={`/project-details/${encodeURIComponent(project.title.toLowerCase())}`}
+                                        className={`text-decoration-none fw-medium link ${isBlack ? 'text-info' : 'text-primary'}`}
+                                    >
+                                        View all screenshots ({images.length}) &rarr;
+                                    </Link>
+                                )}
+                            </div>
+
+                            {hasMultipleImages ? (
+                                <div className="d-flex gap-2 justify-content-between">
+                                    {previewImages.map((imgObj, imgIdx) => (
+                                        <div
+                                            key={`img-${imgIdx}`}
+                                            className="border rounded overflow-hidden flex-fill screenshot"
+                                        >
+                                            <img 
+                                                src={imgObj.img} 
+                                                alt={`Screenshot ${imgIdx + 1}`} 
+                                                className="w-100 h-100 object-fit-fill"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className={`border rounded p-3 text-center text-muted empty d-none d-md-block ${isBlack ? 'bg-dark border-secondary' : 'bg-light border-secondary-subtle'}`} style={{ height: '75px' }}>
+                                    No additional screenshots available
+                                </div>
+                            )}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }
 
