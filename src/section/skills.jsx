@@ -22,7 +22,7 @@ function Skills({ theme }) {
             <div className="container p-3 px-md-5">
                 
                 <div className="mb-4">
-                    <h2 className="mb-2">Tech <span className="h2-span">Stack</span></h2>
+                    <h3 className="mb-2">Tech <span className="h3-span">Stack</span></h3>
                     <p className="subhead text-muted">
                         Technologies and tools I use to bring ideas to life, from intuitive frontend interfaces to reliable backend systems.
                     </p>

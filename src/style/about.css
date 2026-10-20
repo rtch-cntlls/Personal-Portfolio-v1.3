@@ -1,8 +1,8 @@
-h2{
+h3{
     font-family: 'Anton', 'Impact', sans-serif !important;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
-.h2-span{
+.h3-span{
     color: #7ebeff;
 }
 .about-subhead {

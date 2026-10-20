@@ -6,7 +6,6 @@ import Hero from './section/hero';
 import About from './section/about';
 import Project from './section/project';
 import Skills from './section/skills';
-import ProjectDetails from './pages/project-details';
 import GridBackground from '../src/components/GridBackground';
 
 function App() {
@@ -49,11 +48,6 @@ function App() {
                     <Skills theme={theme} />
                   </>
                 } 
-              />
-
-              <Route 
-                path="/project-details/:title" 
-                element={<ProjectDetails theme={theme} />} 
               />
             </Routes>
           </div>

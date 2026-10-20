@@ -76,7 +76,7 @@ p {
 
 
 @media (max-width: 991.98px) {
-  h2, h4, h5, .fs-4, .logo, .tagline{
+  h2, h3, h4, h5, .fs-4, .logo, .tagline{
     font-family: 'Anton', 'Impact', sans-serif !important;
   }
 }
