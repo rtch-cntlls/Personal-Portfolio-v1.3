@@ -1,23 +1,27 @@
 p {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .logo {
-    font-family: 'Anton', 'Impact', sans-serif !important;
-    font-size: clamp(0.8rem, 3vw, 1.2rem);
+  font-family: 'Anton', 'Impact', sans-serif !important;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
+
 .navbar-toggler-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
+
 .tagline {
   font-family: 'Anton', 'Impact', sans-serif !important;
   letter-spacing: 1.2px;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.0rem);
 }
+
 .subhead {
-    font-size: clamp(0.95rem, 1vw, 1.4rem);
-    text-align: justify;
-    text-justify: inter-word;
+  font-size: clamp(0.95rem, 1vw, 1.4rem);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .hero-corner-border {
@@ -49,14 +53,49 @@ p {
   border-radius: 3px;
 }
 
-.handle-tl { top: -5px; left: -5px; }
-.handle-tc { top: -5px; left: 50%; transform: translateX(-50%); }
-.handle-tr { top: -5px; right: -5px; }
-.handle-rc { top: 50%; right: -5px; transform: translateY(-50%); }
-.handle-br { bottom: -5px; right: -5px; }
-.handle-bc { bottom: -5px; left: 50%; transform: translateX(-50%); }
-.handle-bl { bottom: -5px; left: -5px; }
-.handle-lc { top: 50%; left: -5px; transform: translateY(-50%); }
+.handle-tl {
+  top: -5px;
+  left: -5px;
+}
+
+.handle-tc {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.handle-tr {
+  top: -5px;
+  right: -5px;
+}
+
+.handle-rc {
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+}
+
+.handle-br {
+  bottom: -5px;
+  right: -5px;
+}
+
+.handle-bc {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.handle-bl {
+  bottom: -5px;
+  left: -5px;
+}
+
+.handle-lc {
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+}
 
 .availability-badge {
   position: absolute;
@@ -70,13 +109,27 @@ p {
 }
 
 @keyframes floatBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 
 @media (max-width: 991.98px) {
-  h2, h3, h4, h5, .fs-4, .logo, .tagline{
+
+  h2,
+  h3,
+  h4,
+  h5,
+  .fs-4,
+  .logo,
+  .tagline {
     font-family: 'Anton', 'Impact', sans-serif !important;
   }
 }
@@ -87,9 +140,10 @@ p {
     max-width: 320px;
   }
 
-  .screenshot{
+  .screenshot {
     height: 70px !important;
   }
+
   .availability-badge {
     bottom: 15px;
     right: 0px;
@@ -97,18 +151,35 @@ p {
     padding: 0.4rem 0.75rem !important;
   }
 
-  .project-img{
-     height: 190px !important;
+  .project-img {
+    height: 190px !important;
   }
 
-  .link{
+  .link {
     font-size: 10px;
   }
-  .btn-details{
+
+  .btn-details {
     font-size: 9px;
   }
+
   .icon svg {
     width: 10px;
     height: 10px;
+  }
+
+  .btn-sm{
+    font-size: 0.75rem;
+  }
+
+  .tech-stack {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .tech-gap {
+    gap: 0.4rem !important;
   }
 }

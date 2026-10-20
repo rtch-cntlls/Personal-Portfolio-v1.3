@@ -28,12 +28,12 @@ function Skills({ theme }) {
                     </p>
                 </div>
 
-                <div className="d-flex flex-wrap gap-2 mb-4">
+                <div className="d-flex flex-wrap gap-1 mb-4">
                     {['all', 'frontend', 'backend', 'database', 'tools'].map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveTab(cat)}
-                            className={`btn btn-sm text-capitalize px-3 py-1 rounded-pill ${
+                            className={`btn btn-sm text-capitalize px-3 py-1 rounded-pill link ${
                                 activeTab === cat 
                                     ? 'btn-primary fw-semibold' 
                                     : isBlack ? 'btn-outline-secondary text-light' : 'btn-outline-dark'

@@ -17,14 +17,18 @@
  h6 {
      font-family: 'Anton', 'Impact', sans-serif !important;
      font-size: clamp(0.9rem, 3vw, 1.5rem);
+     letter-spacing: 0.5px;
  }
 
- .empty{
-    font-size: clamp(0.5rem, 3vw, 0.8rem);
+ .social{
+    letter-spacing: 1px;
+ }
+ .empty {
+     font-size: clamp(0.5rem, 3vw, 0.8rem);
  }
 
- .screenshot{
-    height: 95px;
+ .screenshot {
+     height: 95px;
  }
 
  .project-img {
@@ -58,9 +62,22 @@
  .modern-image-wrapper:hover .modern-image-overlay {
      opacity: 1;
  }
-.btn-primary{
-    background-color: #0366c9 !important;
-}
+
+ .btn-primary {
+     background-color: #0366c9 !important;
+ }
+
+ .tech-stack {
+     padding-top: 0.5rem;
+     padding-bottom: 0.5rem;
+     padding-left: 1rem;
+     padding-right: 1rem;
+ }
+
+ .tech-gap {
+     gap: 0.5rem;
+ }
+
  @media (min-width: 768px) {
      .custom-card-radius {
          border-radius: 0 4rem 0 4rem;

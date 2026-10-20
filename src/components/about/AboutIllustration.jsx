@@ -1,12 +1,11 @@
-import React from 'react';
 
 function AboutIllustration({ isBlack }) {
     return (
-        <div className="col-lg-5 position-relative d-none d-lg-block">
+        <div className="col-lg-4 position-relative d-none d-lg-block">
             <div 
                 className="position-relative w-100 rounded-0 overflow-hidden shadow-sm"
                 style={{ 
-                    height: '520px', 
+                    height: '320px', 
                     backgroundColor: isBlack ? '#0a0a0a' : '#f8f9fa' 
                 }}
             >
@@ -26,12 +25,6 @@ function AboutIllustration({ isBlack }) {
                         <path d="M380 0H500V150C500 67.1573 432.843 0 380 0Z" fill={isBlack ? "#415a77" : "#1b263b"} />
                         
                         <rect x="0" y="250" width="500" height="100" fill={isBlack ? "#1d3557" : "#0d1b2a"} />
-                        <text x="40" y="315" fill="#ffffff" fontFamily="impact" fontSize="35" letterSpacing="1">Who I Am</text>
-
-                        <g transform="translate(190, 292)" stroke="#ffffff" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="0" y1="12" x2="24" y2="12" />
-                            <polyline points="16,4 24,12 16,20" />
-                        </g>
 
                         <rect x="0" y="350" width="250" height="150" fill={isBlack ? "#1b263b" : "#415a77"} />
                         <path d="M0 350C69.036 350 125 405.964 125 475H0V350Z" fill={isBlack ? "#7ebeff" : "#70d6ff"} />

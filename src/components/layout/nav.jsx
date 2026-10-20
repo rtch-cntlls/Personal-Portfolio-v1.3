@@ -1,14 +1,41 @@
+import React, { useState, useEffect } from 'react';
 import Logo from '../../assets/logo/logo.png';
 
 function Nav({ theme, toggleTheme }) {
   const isBlack = theme === 'black';
+  const [activeSection, setActiveSection] = useState('hero');
 
   const navLinks = [
-    { name: 'About', href: '#about', active: false },
-    { name: 'Projects', href: '#projects', active: true },
-    { name: 'Stack & Skills', href: '#skills', active: true },
-    // { name: 'Services', href: '#services', active: false },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Stack & Skills', href: '#skills' },
+    { name: 'Contact', href: '#contact' },
   ];
+
+  useEffect(() => {
+    const sectionIds = ['hero', 'about', 'projects', 'skills', 'contact'];
+    const elements = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   const ThemeToggleButton = ({ isMobile = false }) => (
     <button 
@@ -66,10 +93,10 @@ function Nav({ theme, toggleTheme }) {
       >
         <div className="container px-md-5">
           <div className="d-lg-none">
-            <BrandLogo width={20} subFontSize="0.8rem" mainFontSize="1rem" />
+            <BrandLogo width={20} />
           </div>
           <div className="d-none d-lg-block">
-            <BrandLogo width={32} subFontSize="1rem" mainFontSize="1.25rem" />
+            <BrandLogo width={32} />
           </div>
 
           <div className="d-flex align-items-center gap-2 d-lg-none">
@@ -89,22 +116,50 @@ function Nav({ theme, toggleTheme }) {
 
           <div className="collapse navbar-collapse justify-content-end d-none d-lg-flex">
             <ul className="navbar-nav align-items-center gap-4 my-0">
-              {navLinks.map((link, index) => (
-                <li className="nav-item" key={index}>
-                  <a className={`nav-link fw-semibold px-3 py-2 rounded-3 ${link.active ? 'active' : ''} ${isBlack ? 'text-light' : 'text-dark'}`} href={link.href}>
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link, index) => {
+                const sectionId = link.href.replace('#', '');
+                const isActive = activeSection === sectionId;
+
+                return (
+                  <li className="nav-item" key={index}>
+                    <a 
+                      className={`nav-link fw-semibold px-2 py-1 ${isActive ? 'active' : ''} ${isBlack ? 'text-light' : 'text-dark'}`}
+                      href={link.href}
+                      style={{
+                        position: 'relative',
+                        transition: 'color 0.3s ease-in-out'
+                      }}
+                    >
+                      {link.name}
+                      <span 
+                        style={{
+                          position: 'absolute',
+                          bottom: '-2px',
+                          left: '0',
+                          width: '100%',
+                          height: '2px',
+                          backgroundColor: isBlack ? '#7ebeff' : '#000000',
+                          transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
+                          transformOrigin: 'left',
+                          transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                        }}
+                      ></span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="d-flex align-items-center gap-3 ms-4">
               <a 
-                href="#contact" 
-                className={`btn btn-sm rounded-pill px-4 py-2 fw-semibold ${isBlack ? 'btn-light text-dark' : 'btn-dark text-light'}`}
+                href="mailto:rtchcntlls@gmail.com" 
+                className={`btn btn-sm rounded-pill px-4 py-2 fw-semibold d-inline-flex align-items-center gap-2 ${isBlack ? 'btn-light text-dark' : 'btn-dark text-light'}`}
                 style={{ fontSize: '0.875rem' }}
               >
-                Let's Talk
+                <span>Let's Talk</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.93L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                </svg>
               </a>
               <ThemeToggleButton isMobile={false} />
             </div>
@@ -121,7 +176,7 @@ function Nav({ theme, toggleTheme }) {
         style={{ width: '280px', backgroundColor: isBlack ? '#000000' : '#ffffff' }}
       >
         <div className="offcanvas-header border-bottom border-secondary border-opacity-10 py-3 px-4">
-          <BrandLogo width={24} subFontSize="0.75rem" mainFontSize="0.95rem" />
+          <BrandLogo width={24} />
           <button 
             type="button" 
             className={`btn-close shadow-none ${isBlack ? 'btn-close-white' : ''}`} 
@@ -131,28 +186,51 @@ function Nav({ theme, toggleTheme }) {
         </div>
         <div className="offcanvas-body py-4 px-4 d-flex flex-column justify-content-between">
           <ul className="navbar-nav gap-3">
-            {navLinks.map((link, index) => (
-              <li className="nav-item" key={index}>
-                <a 
-                  className={`nav-link fw-semibold px-3 py-2 rounded-3 ${link.active ? 'active' : ''} ${
-                    isBlack 
-                      ? (link.active ? 'text-light bg-secondary bg-opacity-25' : 'text-light') 
-                      : (link.active ? 'text-dark bg-light' : 'text-dark')
-                  }`} 
-                  href={link.href}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link, index) => {
+              const sectionId = link.href.replace('#', '');
+              const isActive = activeSection === sectionId;
+
+              return (
+                <li className="nav-item" key={index}>
+                  <a 
+                    className={`nav-link fw-semibold px-2 py-1 d-inline-block ${isActive ? 'active' : ''} ${isBlack ? 'text-light' : 'text-dark'}`}
+                    href={link.href}
+                    data-bs-dismiss="offcanvas"
+                    style={{
+                      position: 'relative',
+                      transition: 'color 0.3s ease-in-out'
+                    }}
+                  >
+                    {link.name}
+                    <span 
+                      style={{
+                        position: 'absolute',
+                        bottom: '-2px',
+                        left: '0',
+                        width: '100%',
+                        height: '2px',
+                        backgroundColor: isBlack ? '#7ebeff' : '#000000',
+                        transform: isActive ? 'scaleX(1)' : 'scaleX(0)',
+                        transformOrigin: 'left',
+                        transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                      }}
+                    ></span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="pt-3 border-top border-secondary border-opacity-10">
             <a 
-              href="#contact" 
-              className={`w-100 btn rounded-pill py-2 fw-semibold ${isBlack ? 'btn-light text-dark' : 'btn-dark text-light'}`}
+              href="mailto:rtchcntlls@gmail.com" 
+              className={`w-100 btn rounded-pill py-2 fw-semibold d-inline-flex align-items-center justify-content-center gap-2 ${isBlack ? 'btn-light text-dark' : 'btn-dark text-light'}`}
+              data-bs-dismiss="offcanvas"
             >
-              Let's Talk
+              <span>Let's Talk</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.93L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+              </svg>
             </a>
           </div>
         </div>

@@ -38,8 +38,8 @@ export const getProjects = () => [
         github: "#"
     },
     {
-        title: "Student Permanent Record Digitalization System",
-        categories: ["Archiving System", "Web App"],
+        title: "Student Permanent Records Management System",
+        categories: ["Student Record", "Web App"],
         description: "A web application for digitizing, backing up, and managing student Form 137 permanent records online. It allows school staff to safely archive files and quickly search or retrieve records.",
         tech: ["Next.js", "Supabase", "PostgreSQL", "Bootstrap5", "CSS3", "hCaptcha"],
         images: ncesImages,
@@ -49,7 +49,7 @@ export const getProjects = () => [
     },
     {
         title: "Gym & Membership Management System",
-        categories: ["Management System", "POS", "Analytics"],
+        categories: ["Management System", "POS", "Membership"],
         description: "A full-stack gym management web application featuring a public website and an admin portal. It streamlines member check-ins, subscription tracking, sales merchandise inventory with a built-in Point of Sale (POS), and revenue analytics.",
         tech: ["Python Flask", "MySQL", "Bootstrap5", "CSS3", "JavaScript"],
         images: [
@@ -61,7 +61,7 @@ export const getProjects = () => [
     },
     {
         title: "School Asset & Inventory Management",
-        categories: ["Inventory System", "Web App"],
+        categories: ["Inventory", "Web App"],
         description: "A web application for tracking school equipment, managing borrower records, and monitoring asset status, including items under maintenance or scheduled for write-off.",
         tech: ["Next.js", "Supabase", "Bootstrap5", "CSS3"],
         images: [
@@ -73,7 +73,7 @@ export const getProjects = () => [
     },
     {
         title: "Patient Care, Medical Records & Booking Management System",
-        categories: ["Healthcare", "Management System"],
+        categories: ["Healthcare", "Booking", "Management System"],
         description: "A full-stack healthcare management web application for hospitals. It includes patients booking consultation along with dedicated dashboards for doctors, receptionists, billing staff, pharmacists, and admins to manage all operations.",
         tech: ["Laravel 12", "MySQL", "Bootstrap 5", "CSS3", "JavaScript", "OAuth 2.0"],
         images: [
@@ -85,7 +85,7 @@ export const getProjects = () => [
     },
     {
         title: "GoHighLevel Portfolio",
-        categories: ["Portfolio", "CRM / Automation"],
+        categories: ["Portfolio"],
         description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
         tech: ["React", "Bootstrap", "Vite", "CSS3"],
         images: [
@@ -123,7 +123,7 @@ export const getProjects = () => [
     },
     {
         title: "Simple Motorcycle Loan Calculator",
-        categories: ["Web Tool", "Fintech Calculator"],
+        categories: ["Web Tool", "Calculator"],
         description: "A simple web application built with ASP.NET MVC for computing motorcycle loans. It easily calculates unit prices, monthly amortizations, and total loanable amounts all on a single page.",
         tech: ["C#", "ASP.NET MVC", "Bootstrap", "CSS3"],
         images: [

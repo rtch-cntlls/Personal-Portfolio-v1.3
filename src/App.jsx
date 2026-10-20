@@ -6,6 +6,7 @@ import Hero from './section/hero';
 import About from './section/about';
 import Project from './section/project';
 import Skills from './section/skills';
+import Contact from './section/contact';
 import GridBackground from '../src/components/GridBackground';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
                     <About theme={theme} />
                     <Project theme={theme} />
                     <Skills theme={theme} />
+                    <Contact theme={theme} />
                   </>
                 } 
               />

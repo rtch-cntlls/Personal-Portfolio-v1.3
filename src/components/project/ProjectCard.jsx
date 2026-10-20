@@ -75,7 +75,7 @@ export default function ProjectCard({ project, isBlack, onOpenGallery }) {
                                                 href={project.link} 
                                                 target="_blank" 
                                                 rel="noopener noreferrer" 
-                                                className={`text-decoration-none d-flex align-items-center gap-1 link fw-medium ${isBlack ? 'text-light' : 'text-dark'}`}
+                                                className={`text-decoration-none d-flex align-items-center gap-1 link fw-medium ${isBlack ? 'text-light' : 'text-primary'}`}
                                                 title={project.linkType === 'live' ? 'Visit Live Site' : 'Visit Demo Site'}
                                             >
                                                 <span className="icon d-flex align-items-center">
@@ -127,17 +127,17 @@ export default function ProjectCard({ project, isBlack, onOpenGallery }) {
                         </div>
 
                         {project.description && (
-                            <p className={`small mb-3 ${isBlack ? 'text-light opacity-75' : 'text-muted'}`}>
+                            <p className={`small mb-3 description ${isBlack ? 'text-light opacity-75' : 'text-muted'}`}>
                                 {project.description}
                             </p>
                         )}
 
                         {techStack.length > 0 && (
-                            <div className="d-flex flex-wrap gap-2 pt-3 border-top">
+                            <div className="d-flex flex-wrap pt-3 border-top tech-gap">
                                 {techStack.map((tech, idx) => (
                                     <span 
                                         key={`tech-${idx}`} 
-                                        className={`badge fw-normal py-2 px-3 rounded-pill ${isBlack ? 'bg-dark text-light opacity-75 border border-secondary' : 'bg-secondary-subtle text-dark'}`}
+                                        className={`badge fw-normal rounded-pill tech-stack ${isBlack ? 'bg-dark text-light opacity-75 border border-secondary' : 'bg-secondary-subtle text-dark'}`}
                                     >
                                         {tech}
                                     </span>
