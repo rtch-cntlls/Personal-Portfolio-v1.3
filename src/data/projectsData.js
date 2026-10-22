@@ -1,13 +1,13 @@
 import { motolinkImages } from '../assets/projects/motolink/motolinkAssets';
 import { erentImages } from '../assets/projects/e-rent/erentAssets';
 import { ncesImages } from '../assets/projects/nces/ncesAssets';
+import { careImages } from '../assets/projects/care/careAssets';
 
 import activehubImg from '../assets/projects/gym/1.png';
 import assetflowImg from '../assets/projects/inv/1.png';
 
 import portfolio1 from '../assets/projects/portfolio/1.png';
 import portfolio2 from '../assets/projects/portfolio/2.PNG';
-import care from '../assets/projects/care/1.png';
 import poslogin from '../assets/projects/pos/login.png';
 import posview from '../assets/projects/pos/pos.png';
 import poscreate from '../assets/projects/pos/create.png';
@@ -72,13 +72,11 @@ export const getProjects = () => [
         github: "#"
     },
     {
-        title: "Patient Care, Medical Records & Booking Management System",
+        title: "Clinic Appointment and Management System",
         categories: ["Healthcare", "Booking", "Management System"],
         description: "A full-stack healthcare management web application for hospitals. It includes patients booking consultation along with dedicated dashboards for doctors, receptionists, billing staff, pharmacists, and admins to manage all operations.",
         tech: ["Laravel 12", "MySQL", "Bootstrap 5", "CSS3", "JavaScript", "OAuth 2.0"],
-        images: [
-            { img: care }
-        ],
+        images: careImages,
         link: "#",
         linkType: "demo",
         github: "#"
