@@ -81,30 +81,30 @@ export const getProjects = () => [
         linkType: "demo",
         github: "#"
     },
-    {
-        title: "GoHighLevel Portfolio",
-        categories: ["Portfolio"],
-        description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
-        tech: ["React", "Bootstrap", "Vite", "CSS3"],
-        images: [
-            { img: portfolio2 }
-        ],
-        link: "https://hanneygraceleominares-ghl-portfolio.vercel.app/",
-        linkType: "live",
-        github: "#"
-    },
-    {
-        title: "Personal Portfolio",
-        categories: ["Portfolio", "No-Code"],
-        description: "A simple personal portfolio website created in Webflow to showcase background, interests, core skills, and career goals.",
-        tech: ["WebFlow"],
-        images: [
-            { img: portfolio1 }
-        ],
-        link: "#",
-        linkType: "demo",
-        github: "#"
-    },
+    // {
+    //     title: "GoHighLevel Portfolio",
+    //     categories: ["Portfolio"],
+    //     description: "A modern and responsive portfolio showcasing custom GoHighLevel projects, including automated workflows, funnels, and high-converting landing pages built for clients.",
+    //     tech: ["React", "Bootstrap", "Vite", "CSS3"],
+    //     images: [
+    //         { img: portfolio2 }
+    //     ],
+    //     link: "https://hanneygraceleominares-ghl-portfolio.vercel.app/",
+    //     linkType: "live",
+    //     github: "#"
+    // },
+    // {
+    //     title: "Personal Portfolio",
+    //     categories: ["Portfolio", "No-Code"],
+    //     description: "A simple personal portfolio website created in Webflow to showcase background, interests, core skills, and career goals.",
+    //     tech: ["WebFlow"],
+    //     images: [
+    //         { img: portfolio1 }
+    //     ],
+    //     link: "#",
+    //     linkType: "demo",
+    //     github: "#"
+    // },
     {
         title: "Filipino Snacks & Beverages Point of Sale",
         categories: ["Desktop App", "POS System"],

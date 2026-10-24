@@ -104,7 +104,7 @@ export default function ProjectCard({ project, isBlack, onOpenGallery }) {
                                         <span className="icon d-flex align-items-center">
                                            <FiLock size={16} />
                                         </span>
-                                        <span>This repository and live website are currently private</span>
+                                        {/* <span>This repository and live website are currently private</span> */}
                                     </span>
                                 )}
                             </div>
@@ -132,7 +132,7 @@ export default function ProjectCard({ project, isBlack, onOpenGallery }) {
                             </p>
                         )}
 
-                        {techStack.length > 0 && (
+                        {/* {techStack.length > 0 && (
                             <div className="d-flex flex-wrap pt-3 border-top tech-gap">
                                 {techStack.map((tech, idx) => (
                                     <span 
@@ -143,7 +143,7 @@ export default function ProjectCard({ project, isBlack, onOpenGallery }) {
                                     </span>
                                 ))}
                             </div>
-                        )}
+                        )} */}
 
                     </div>
                 </div>
